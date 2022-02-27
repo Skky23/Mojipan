@@ -99,7 +99,7 @@ public class VentanaGestionUsuarios extends JPanel {
 		textFieldIdUsuario.setColumns(10);
 		
 		JSeparator separator = new JSeparator();
-		separator.setForeground(new Color(0, 153, 255));
+		separator.setForeground(new Color(159,11,47));
 		separator.setBounds(30, 123, 261, 2);
 		add(separator);
 		
@@ -141,12 +141,12 @@ public class VentanaGestionUsuarios extends JPanel {
 		add(textFieldNombreUsuario);
 		
 		JSeparator separator_1 = new JSeparator();
-		separator_1.setForeground(new Color(0, 153, 255));
+		separator_1.setForeground(new Color(159,11,47));
 		separator_1.setBounds(311, 123, 261, 2);
 		add(separator_1);
 		
 		JSeparator separator_3 = new JSeparator();
-		separator_3.setForeground(new Color(0, 153, 255));
+		separator_3.setForeground(new Color(159,11,47));
 		separator_3.setBounds(594, 123, 261, 2);
 		add(separator_3);
 		
@@ -184,7 +184,7 @@ public class VentanaGestionUsuarios extends JPanel {
 		add(textFieldTelefonoUsuario);
 		
 		JSeparator separator_4 = new JSeparator();
-		separator_4.setForeground(new Color(0, 153, 255));
+		separator_4.setForeground(new Color(159,11,47));
 		separator_4.setBounds(30, 185, 261, 2);
 		add(separator_4);
 		
@@ -223,7 +223,7 @@ public class VentanaGestionUsuarios extends JPanel {
 		btnRegistrar.setFont(new Font("Roboto", Font.BOLD, 12));
 		btnRegistrar.setForeground(Color.WHITE);
 		btnRegistrar.setBorder(null);
-		btnRegistrar.setBackground(new Color(0,51,153));
+		btnRegistrar.setBackground(new Color(159,11,47));
 		btnRegistrar.setBounds(30, 209, 113, 25);
 		add(btnRegistrar);
 		
@@ -231,7 +231,7 @@ public class VentanaGestionUsuarios extends JPanel {
 		btnModificarUsuario.setForeground(Color.WHITE);
 		btnModificarUsuario.setFont(new Font("Roboto", Font.BOLD, 12));
 		btnModificarUsuario.setBorder(null);
-		btnModificarUsuario.setBackground(new Color(0, 51, 153));
+		btnModificarUsuario.setBackground(new Color(159,11,47));
 		btnModificarUsuario.setBounds(172, 209, 113, 25);
 		add(btnModificarUsuario);
 		
@@ -243,7 +243,7 @@ public class VentanaGestionUsuarios extends JPanel {
 		btnEliminarUsuario.setForeground(Color.WHITE);
 		btnEliminarUsuario.setFont(new Font("Roboto", Font.BOLD, 12));
 		btnEliminarUsuario.setBorder(null);
-		btnEliminarUsuario.setBackground(new Color(0, 51, 153));
+		btnEliminarUsuario.setBackground(new Color(159,11,47));
 		btnEliminarUsuario.setBounds(315, 209, 113, 25);
 		add(btnEliminarUsuario);
 		
@@ -290,7 +290,7 @@ public class VentanaGestionUsuarios extends JPanel {
 		add(textFieldBuscarUsuarioPorId);
 		
 		JSeparator separator_7 = new JSeparator();
-		separator_7.setForeground(new Color(0, 153, 255));
+		separator_7.setForeground(new Color(159,11,47));
 		separator_7.setBounds(30, 283, 700, 2);
 		add(separator_7);
 		
@@ -302,7 +302,7 @@ public class VentanaGestionUsuarios extends JPanel {
 		btnBuscarUsuario.setForeground(Color.WHITE);
 		btnBuscarUsuario.setFont(new Font("Roboto", Font.BOLD, 12));
 		btnBuscarUsuario.setBorder(null);
-		btnBuscarUsuario.setBackground(new Color(0, 51, 153));
+		btnBuscarUsuario.setBackground(new Color(159,11,47));
 		btnBuscarUsuario.setBounds(740, 260, 113, 25);
 		add(btnBuscarUsuario);
 		
@@ -334,7 +334,7 @@ public class VentanaGestionUsuarios extends JPanel {
 		btnSeleccionar.setForeground(Color.WHITE);
 		btnSeleccionar.setFont(new Font("Roboto", Font.BOLD, 12));
 		btnSeleccionar.setBorder(null);
-		btnSeleccionar.setBackground(new Color(0, 51, 153));
+		btnSeleccionar.setBackground(new Color(159,11,47));
 		btnSeleccionar.setBounds(30, 442, 113, 25);
 		add(btnSeleccionar);
 		
@@ -346,7 +346,7 @@ public class VentanaGestionUsuarios extends JPanel {
 		btnLimpiar.setForeground(Color.WHITE);
 		btnLimpiar.setFont(new Font("Roboto", Font.BOLD, 12));
 		btnLimpiar.setBorder(null);
-		btnLimpiar.setBackground(new Color(0, 51, 153));
+		btnLimpiar.setBackground(new Color(159,11,47));
 		btnLimpiar.setBounds(459, 209, 113, 25);
 		add(btnLimpiar);
 		
@@ -358,7 +358,7 @@ public class VentanaGestionUsuarios extends JPanel {
 		btnTraerInfoDB.setForeground(Color.WHITE);
 		btnTraerInfoDB.setFont(new Font("Roboto", Font.BOLD, 12));
 		btnTraerInfoDB.setBorder(null);
-		btnTraerInfoDB.setBackground(new Color(0, 51, 153));
+		btnTraerInfoDB.setBackground(new Color(159,11,47));
 		btnTraerInfoDB.setBounds(152, 442, 138, 25);
 		add(btnTraerInfoDB);
 

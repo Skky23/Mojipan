@@ -94,7 +94,7 @@ public class VentanaGestionClientes extends JPanel {
 		textFieldIdCliente.setColumns(10);
 		
 		JSeparator separator = new JSeparator();
-		separator.setForeground(new Color(0, 153, 255));
+		separator.setForeground(new Color(159,11,47));
 		separator.setBounds(30, 123, 261, 2);
 		add(separator);
 		
@@ -135,7 +135,7 @@ public class VentanaGestionClientes extends JPanel {
 		add(textFieldNombreCliente);
 		
 		JSeparator separator_1 = new JSeparator();
-		separator_1.setForeground(new Color(0, 153, 255));
+		separator_1.setForeground(new Color(159,11,47));
 		separator_1.setBounds(311, 123, 261, 2);
 		add(separator_1);
 		
@@ -172,7 +172,7 @@ public class VentanaGestionClientes extends JPanel {
 		add(textFieldTelefonoCliente);
 		
 		JSeparator separator_2 = new JSeparator();
-		separator_2.setForeground(new Color(0, 153, 255));
+		separator_2.setForeground(new Color(159,11,47));
 		separator_2.setBounds(592, 123, 261, 2);
 		add(separator_2);
 		
@@ -180,7 +180,7 @@ public class VentanaGestionClientes extends JPanel {
 		btnRegistrarCliente.setFont(new Font("Roboto", Font.BOLD, 12));
 		btnRegistrarCliente.setForeground(Color.WHITE);
 		btnRegistrarCliente.setBorder(null);
-		btnRegistrarCliente.setBackground(new Color(0,51,153));
+		btnRegistrarCliente.setBackground(new Color(159,11,47));
 		btnRegistrarCliente.setBounds(30, 209, 113, 25);
 		add(btnRegistrarCliente);
 		
@@ -188,7 +188,7 @@ public class VentanaGestionClientes extends JPanel {
 		btnModificarCliente.setForeground(Color.WHITE);
 		btnModificarCliente.setFont(new Font("Roboto", Font.BOLD, 12));
 		btnModificarCliente.setBorder(null);
-		btnModificarCliente.setBackground(new Color(0, 51, 153));
+		btnModificarCliente.setBackground(new Color(159,11,47));
 		btnModificarCliente.setBounds(153, 209, 113, 25);
 		add(btnModificarCliente);
 		
@@ -196,7 +196,7 @@ public class VentanaGestionClientes extends JPanel {
 		btnEliminarCliente.setForeground(Color.WHITE);
 		btnEliminarCliente.setFont(new Font("Roboto", Font.BOLD, 12));
 		btnEliminarCliente.setBorder(null);
-		btnEliminarCliente.setBackground(new Color(0, 51, 153));
+		btnEliminarCliente.setBackground(new Color(159,11,47));
 		btnEliminarCliente.setBounds(276, 209, 113, 25);
 		add(btnEliminarCliente);
 		
@@ -218,7 +218,7 @@ public class VentanaGestionClientes extends JPanel {
 		add(textFieldBuscarClientePorId);
 		
 		JSeparator separator_7 = new JSeparator();
-		separator_7.setForeground(new Color(0, 153, 255));
+		separator_7.setForeground(new Color(159,11,47));
 		separator_7.setBounds(30, 283, 700, 2);
 		add(separator_7);
 		
@@ -230,7 +230,7 @@ public class VentanaGestionClientes extends JPanel {
 		btnBuscarCliente.setForeground(Color.WHITE);
 		btnBuscarCliente.setFont(new Font("Roboto", Font.BOLD, 12));
 		btnBuscarCliente.setBorder(null);
-		btnBuscarCliente.setBackground(new Color(0, 51, 153));
+		btnBuscarCliente.setBackground(new Color(159,11,47));
 		btnBuscarCliente.setBounds(740, 260, 113, 25);
 		add(btnBuscarCliente);
 		
@@ -259,7 +259,7 @@ public class VentanaGestionClientes extends JPanel {
 		btnSeleccionar.setForeground(Color.WHITE);
 		btnSeleccionar.setFont(new Font("Roboto", Font.BOLD, 12));
 		btnSeleccionar.setBorder(null);
-		btnSeleccionar.setBackground(new Color(0, 51, 153));
+		btnSeleccionar.setBackground(new Color(159,11,47));
 		btnSeleccionar.setBounds(30, 442, 113, 25);
 		add(btnSeleccionar);
 		
@@ -267,7 +267,7 @@ public class VentanaGestionClientes extends JPanel {
 		btnLimpiar.setForeground(Color.WHITE);
 		btnLimpiar.setFont(new Font("Roboto", Font.BOLD, 12));
 		btnLimpiar.setBorder(null);
-		btnLimpiar.setBackground(new Color(0, 51, 153));
+		btnLimpiar.setBackground(new Color(159,11,47));
 		btnLimpiar.setBounds(398, 209, 113, 25);
 		add(btnLimpiar);
 		
@@ -275,7 +275,7 @@ public class VentanaGestionClientes extends JPanel {
 		btnListaDeClientes.setForeground(Color.WHITE);
 		btnListaDeClientes.setFont(new Font("Roboto", Font.BOLD, 12));
 		btnListaDeClientes.setBorder(null);
-		btnListaDeClientes.setBackground(new Color(0, 51, 153));
+		btnListaDeClientes.setBackground(new Color(159,11,47));
 		btnListaDeClientes.setBounds(153, 442, 131, 25);
 		add(btnListaDeClientes);
 

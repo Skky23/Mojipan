@@ -70,13 +70,12 @@ public class VentanaLogin extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("New label");
 		lblNewLabel.setBorder(null);
-<<<<<<< HEAD
+
 		lblNewLabel.setIcon(new ImageIcon(VentanaLogin.class.getResource("/imagenes/logo.jpeg")));
 		lblNewLabel.setBounds(470, 0, 316, 461);
-=======
+
 		lblNewLabel.setIcon(new ImageIcon(VentanaLogin.class.getResource("/imagenes/imagenLoginMojipan.jpg")));
 		lblNewLabel.setBounds(483, 0, 301, 461);
->>>>>>> df599818a95647a5732d035df67a312387054f10
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("INICIAR SESIÓN");
@@ -186,11 +185,8 @@ public class VentanaLogin extends JFrame {
 		contentPane.add(separator_1);
 		
 		JLabel lblNewLabel_4 = new JLabel("");
-<<<<<<< HEAD
 		lblNewLabel_4.setIcon(new ImageIcon(VentanaLogin.class.getResource("/imagenes/pan.png")));
-=======
 		lblNewLabel_4.setIcon(new ImageIcon(VentanaLogin.class.getResource("/imagenes/iconPan.png")));
->>>>>>> df599818a95647a5732d035df67a312387054f10
 		lblNewLabel_4.setBounds(50, 40, 45, 45);
 		contentPane.add(lblNewLabel_4);
 		

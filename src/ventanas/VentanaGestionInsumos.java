@@ -86,7 +86,7 @@ public class VentanaGestionInsumos extends JPanel {
 		add(textFieldBuscarItem);
 		
 		JSeparator separator_7 = new JSeparator();
-		separator_7.setForeground(new Color(0, 153, 255));
+		separator_7.setForeground(new Color(159,11,47));
 		separator_7.setBounds(176, 293, 525, 2);
 		add(separator_7);
 		
@@ -98,7 +98,7 @@ public class VentanaGestionInsumos extends JPanel {
 		btnBuscarItem.setForeground(Color.WHITE);
 		btnBuscarItem.setFont(new Font("Roboto", Font.BOLD, 12));
 		btnBuscarItem.setBorder(null);
-		btnBuscarItem.setBackground(new Color(0, 51, 153));
+		btnBuscarItem.setBackground(new Color(159,11,47));
 		btnBuscarItem.setBounds(711, 270, 142, 25);
 		add(btnBuscarItem);
 		
@@ -126,7 +126,7 @@ public class VentanaGestionInsumos extends JPanel {
 		btnSeleccionar.setForeground(Color.WHITE);
 		btnSeleccionar.setFont(new Font("Roboto", Font.BOLD, 12));
 		btnSeleccionar.setBorder(null);
-		btnSeleccionar.setBackground(new Color(0, 51, 153));
+		btnSeleccionar.setBackground(new Color(159,11,47));
 		btnSeleccionar.setBounds(30, 442, 113, 25);
 		add(btnSeleccionar);
 		
@@ -134,7 +134,7 @@ public class VentanaGestionInsumos extends JPanel {
 		btnListaInventario.setForeground(Color.WHITE);
 		btnListaInventario.setFont(new Font("Roboto", Font.BOLD, 12));
 		btnListaInventario.setBorder(null);
-		btnListaInventario.setBackground(new Color(0, 51, 153));
+		btnListaInventario.setBackground(new Color(159,11,47));
 		btnListaInventario.setBounds(153, 442, 143, 25);
 		add(btnListaInventario);
 		
@@ -253,7 +253,7 @@ public class VentanaGestionInsumos extends JPanel {
 		btnRegistrarItem.setForeground(Color.WHITE);
 		btnRegistrarItem.setFont(new Font("Roboto", Font.BOLD, 12));
 		btnRegistrarItem.setBorder(null);
-		btnRegistrarItem.setBackground(new Color(0, 51, 153));
+		btnRegistrarItem.setBackground(new Color(159,11,47));
 		btnRegistrarItem.setBounds(30, 221, 113, 25);
 		add(btnRegistrarItem);
 		
@@ -261,7 +261,7 @@ public class VentanaGestionInsumos extends JPanel {
 		btnModificarItem.setForeground(Color.WHITE);
 		btnModificarItem.setFont(new Font("Roboto", Font.BOLD, 12));
 		btnModificarItem.setBorder(null);
-		btnModificarItem.setBackground(new Color(0, 51, 153));
+		btnModificarItem.setBackground(new Color(159,11,47));
 		btnModificarItem.setBounds(161, 221, 113, 25);
 		add(btnModificarItem);
 		
@@ -269,7 +269,7 @@ public class VentanaGestionInsumos extends JPanel {
 		btnEliminarItem.setForeground(Color.WHITE);
 		btnEliminarItem.setFont(new Font("Roboto", Font.BOLD, 12));
 		btnEliminarItem.setBorder(null);
-		btnEliminarItem.setBackground(new Color(0, 51, 153));
+		btnEliminarItem.setBackground(new Color(159,11,47));
 		btnEliminarItem.setBounds(293, 221, 113, 25);
 		add(btnEliminarItem);
 		
@@ -277,7 +277,7 @@ public class VentanaGestionInsumos extends JPanel {
 		btnLimpiar.setForeground(Color.WHITE);
 		btnLimpiar.setFont(new Font("Roboto", Font.BOLD, 12));
 		btnLimpiar.setBorder(null);
-		btnLimpiar.setBackground(new Color(0, 51, 153));
+		btnLimpiar.setBackground(new Color(159,11,47));
 		btnLimpiar.setBounds(427, 221, 113, 25);
 		add(btnLimpiar);
 		
@@ -288,22 +288,22 @@ public class VentanaGestionInsumos extends JPanel {
 		add(comboBoxArgumentoBusqueda);
 		
 		JSeparator separator_7_1 = new JSeparator();
-		separator_7_1.setForeground(new Color(0, 153, 255));
+		separator_7_1.setForeground(new Color(159,11,47));
 		separator_7_1.setBounds(30, 122, 244, 2);
 		add(separator_7_1);
 		
 		JSeparator separator_7_1_1 = new JSeparator();
-		separator_7_1_1.setForeground(new Color(0, 153, 255));
+		separator_7_1_1.setForeground(new Color(159,11,47));
 		separator_7_1_1.setBounds(293, 122, 247, 2);
 		add(separator_7_1_1);
 		
 		JSeparator separator_7_1_4 = new JSeparator();
-		separator_7_1_4.setForeground(new Color(0, 153, 255));
+		separator_7_1_4.setForeground(new Color(159,11,47));
 		separator_7_1_4.setBounds(563, 122, 244, 2);
 		add(separator_7_1_4);
 		
 		JSeparator separator_7_1_1_1 = new JSeparator();
-		separator_7_1_1_1.setForeground(new Color(0, 153, 255));
+		separator_7_1_1_1.setForeground(new Color(159,11,47));
 		separator_7_1_1_1.setBounds(30, 183, 247, 2);
 		add(separator_7_1_1_1);
 
