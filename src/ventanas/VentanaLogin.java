@@ -11,8 +11,11 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.border.LineBorder;
 import java.awt.Font;
+import java.awt.Image;
+
 import javax.swing.JTextField;
 import javax.swing.JSeparator;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
@@ -20,6 +23,9 @@ import javax.swing.SwingConstants;
 import java.awt.Cursor;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyAdapter;
@@ -34,8 +40,9 @@ public class VentanaLogin extends JFrame {
 
 	/**
 	 * Create the frame.
+	 * @throws IOException 
 	 */
-	public VentanaLogin() {
+	public VentanaLogin() throws IOException {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 500);
@@ -60,10 +67,11 @@ public class VentanaLogin extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		
 		JLabel lblNewLabel = new JLabel("New label");
 		lblNewLabel.setBorder(null);
-		lblNewLabel.setIcon(new ImageIcon(VentanaLogin.class.getResource("/imagenes/fotoLoginCalzado.jpg")));
-		lblNewLabel.setBounds(527, 0, 257, 461);
+		lblNewLabel.setIcon(new ImageIcon(VentanaLogin.class.getResource("/imagenes/logo.jpeg")));
+		lblNewLabel.setBounds(470, 0, 316, 461);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("INICIAR SESIÓN");
@@ -124,7 +132,7 @@ public class VentanaLogin extends JFrame {
 		
 		JLabel lblNewLabel_3 = new JLabel("MOJIPAN");
 		lblNewLabel_3.setFont(new Font("Roboto", Font.BOLD, 24));
-		lblNewLabel_3.setBounds(105, 40, 351, 45);
+		lblNewLabel_3.setBounds(106, 40, 126, 45);
 		contentPane.add(lblNewLabel_3);
 		
 		JLabel lblNewLabel_2_1 = new JLabel("CONTRASEÑA");
@@ -173,24 +181,28 @@ public class VentanaLogin extends JFrame {
 		contentPane.add(separator_1);
 		
 		JLabel lblNewLabel_4 = new JLabel("");
-		lblNewLabel_4.setIcon(new ImageIcon(VentanaLogin.class.getResource("/imagenes/iconZapatoNegro.png")));
+		lblNewLabel_4.setIcon(new ImageIcon(VentanaLogin.class.getResource("/imagenes/pan.png")));
 		lblNewLabel_4.setBounds(50, 40, 45, 45);
 		contentPane.add(lblNewLabel_4);
 		
 		btnEntrar = new JButton("ENTRAR");
+		btnEntrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnEntrar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				btnEntrar.setBackground(new Color(51,51,225));
+				btnEntrar.setBackground(new Color(210, 45, 87));
 			}
 			@Override
 			public void mouseExited(MouseEvent e) {
-				btnEntrar.setBackground(new Color(0, 51, 120));
+				btnEntrar.setBackground(new Color(159, 11, 47));
 			}
 		});
 		btnEntrar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnEntrar.setBorder(null);
-		btnEntrar.setBackground(new Color(0, 51, 153));
+		btnEntrar.setBackground(new Color(159, 11, 47));
 		btnEntrar.setForeground(new Color(255, 255, 255));
 		btnEntrar.setFont(new Font("Roboto", Font.BOLD, 14));
 		btnEntrar.setBounds(50, 335, 126, 39);

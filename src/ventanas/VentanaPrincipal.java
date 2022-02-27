@@ -71,7 +71,7 @@ public class VentanaPrincipal extends JFrame {
 		contentPane.setLayout(null);
 		
 		JPanel panelLateral = new JPanel();
-		panelLateral.setBackground(new Color(0, 51, 102));
+		panelLateral.setBackground(new Color(159, 11, 47));
 		panelLateral.setBounds(0, 0, 300, 661);
 		contentPane.add(panelLateral);
 		panelLateral.setLayout(null);
@@ -79,10 +79,10 @@ public class VentanaPrincipal extends JFrame {
 		JLabel iconTituloPanelLateral = new JLabel("");
 		iconTituloPanelLateral.setBounds(61, 23, 45, 45);
 		panelLateral.add(iconTituloPanelLateral);
-		iconTituloPanelLateral.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/imagenes/iconZapato.png")));
+		iconTituloPanelLateral.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/imagenes/panBlanco.png")));
 		
-		JLabel lblTituloPanelLateral = new JLabel("Calzado Eze");
-		lblTituloPanelLateral.setBounds(116, 23, 124, 45);
+		JLabel lblTituloPanelLateral = new JLabel("Mojipan");
+		lblTituloPanelLateral.setBounds(116, 23, 97, 45);
 		panelLateral.add(lblTituloPanelLateral);
 		lblTituloPanelLateral.setForeground(new Color(255, 255, 255));
 		lblTituloPanelLateral.setHorizontalAlignment(SwingConstants.LEFT);
@@ -96,11 +96,11 @@ public class VentanaPrincipal extends JFrame {
 		btnPerfil.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				btnPerfil.setBackground(new Color(51, 51, 225));
+				btnPerfil.setBackground(new Color(210, 45, 87));
 			}
 			@Override
 			public void mouseExited(MouseEvent e) {
-				btnPerfil.setBackground(new Color(0, 51, 102));
+				btnPerfil.setBackground(new Color( 159, 11, 47));
 			}
 		});
 		btnPerfil.setFocusPainted(false);
@@ -109,7 +109,7 @@ public class VentanaPrincipal extends JFrame {
 		panelLateral.add(btnPerfil);
 		btnPerfil.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/imagenes/iconBotonPerfil.png")));
 		btnPerfil.setForeground(new Color(255, 255, 255));
-		btnPerfil.setBackground(new Color(0, 51, 102));
+		btnPerfil.setBackground(new Color( 159, 11, 47));
 		btnPerfil.setFont(new Font("Roboto", Font.BOLD, 16));
 		btnPerfil.setBorder(null);
 		
@@ -117,11 +117,11 @@ public class VentanaPrincipal extends JFrame {
 		btnGestionUsuarios.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				btnGestionUsuarios.setBackground(new Color(51, 51, 225));
+				btnGestionUsuarios.setBackground(new Color(210, 45, 87));
 			}
 			@Override
 			public void mouseExited(MouseEvent e) {
-				btnGestionUsuarios.setBackground(new Color(0, 51, 102));
+				btnGestionUsuarios.setBackground(new Color(159, 11, 47));
 			}
 		});
 		btnGestionUsuarios.setFocusPainted(false);
@@ -132,17 +132,17 @@ public class VentanaPrincipal extends JFrame {
 		btnGestionUsuarios.setForeground(Color.WHITE);
 		btnGestionUsuarios.setFont(new Font("Roboto", Font.BOLD, 16));
 		btnGestionUsuarios.setBorder(null);
-		btnGestionUsuarios.setBackground(new Color(0, 51, 102));
+		btnGestionUsuarios.setBackground(new Color(159, 11, 47));
 		
 		btnGestionClientes = new JButton("   Gestión de Clientes");
 		btnGestionClientes.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				btnGestionClientes.setBackground(new Color(51, 51, 225));
+				btnGestionClientes.setBackground(new Color(210, 45, 87));
 			}
 			@Override
 			public void mouseExited(MouseEvent e) {
-				btnGestionClientes.setBackground(new Color(0, 51, 102));
+				btnGestionClientes.setBackground(new Color(159, 11, 47));
 			}
 		});
 		btnGestionClientes.setFocusPainted(false);
@@ -157,17 +157,17 @@ public class VentanaPrincipal extends JFrame {
 		btnGestionClientes.setForeground(Color.WHITE);
 		btnGestionClientes.setFont(new Font("Roboto", Font.BOLD, 16));
 		btnGestionClientes.setBorder(null);
-		btnGestionClientes.setBackground(new Color(0, 51, 102));
+		btnGestionClientes.setBackground(new Color(159, 11, 47));
 		
-		btnGestionProveedores = new JButton("   Gestion de Proveedores");
+		btnGestionProveedores = new JButton("   Insumos");
 		btnGestionProveedores.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				btnGestionProveedores.setBackground(new Color(51, 51, 225));
+				btnGestionProveedores.setBackground(new Color(210, 45, 87));
 			}
 			@Override
 			public void mouseExited(MouseEvent e) {
-				btnGestionProveedores.setBackground(new Color(0, 51, 102));
+				btnGestionProveedores.setBackground(new Color(159, 11, 47));
 			}
 		});
 		btnGestionProveedores.setFocusPainted(false);
@@ -178,17 +178,17 @@ public class VentanaPrincipal extends JFrame {
 		btnGestionProveedores.setForeground(Color.WHITE);
 		btnGestionProveedores.setFont(new Font("Roboto", Font.BOLD, 16));
 		btnGestionProveedores.setBorder(null);
-		btnGestionProveedores.setBackground(new Color(0, 51, 102));
+		btnGestionProveedores.setBackground(new Color(159, 11, 47));
 		
-		btnInventario = new JButton("   Inventario");
+		btnInventario = new JButton("   Productos");
 		btnInventario.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				btnInventario.setBackground(new Color(51, 51, 225));
+				btnInventario.setBackground(new Color(210, 45, 87));
 			}
 			@Override
 			public void mouseExited(MouseEvent e) {
-				btnInventario.setBackground(new Color(0, 51, 102));
+				btnInventario.setBackground(new Color(159, 11, 47));
 			}
 		});
 		btnInventario.setFocusPainted(false);
@@ -199,17 +199,17 @@ public class VentanaPrincipal extends JFrame {
 		btnInventario.setForeground(Color.WHITE);
 		btnInventario.setFont(new Font("Roboto", Font.BOLD, 16));
 		btnInventario.setBorder(null);
-		btnInventario.setBackground(new Color(0, 51, 102));
+		btnInventario.setBackground(new Color(159, 11, 47));
 		
 		btnVentas = new JButton("   Ventas");
 		btnVentas.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				btnVentas.setBackground(new Color(51, 51, 225));
+				btnVentas.setBackground(new Color(210, 45, 87));
 			}
 			@Override
 			public void mouseExited(MouseEvent e) {
-				btnVentas.setBackground(new Color(0, 51, 102));
+				btnVentas.setBackground(new Color(159, 11, 47));
 			}
 		});
 		btnVentas.setFocusPainted(false);
@@ -220,17 +220,17 @@ public class VentanaPrincipal extends JFrame {
 		btnVentas.setForeground(Color.WHITE);
 		btnVentas.setFont(new Font("Roboto", Font.BOLD, 16));
 		btnVentas.setBorder(null);
-		btnVentas.setBackground(new Color(0, 51, 102));
+		btnVentas.setBackground(new Color(159, 11, 47));
 		
 		btnReportes = new JButton("   Reportes");
 		btnReportes.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				btnReportes.setBackground(new Color(51, 51, 225));
+				btnReportes.setBackground(new Color(210, 45, 87));
 			}
 			@Override
 			public void mouseExited(MouseEvent e) {
-				btnReportes.setBackground(new Color(0, 51, 102));
+				btnReportes.setBackground(new Color(159, 11, 47));
 			}
 		});
 		btnReportes.setFocusPainted(false);
@@ -241,17 +241,17 @@ public class VentanaPrincipal extends JFrame {
 		btnReportes.setForeground(Color.WHITE);
 		btnReportes.setFont(new Font("Roboto", Font.BOLD, 16));
 		btnReportes.setBorder(null);
-		btnReportes.setBackground(new Color(0, 51, 102));
+		btnReportes.setBackground(new Color(159, 11, 47));
 		
 		btnSalir = new JButton("   Salir");
 		btnSalir.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				btnSalir.setBackground(new Color(51, 51, 225));
+				btnSalir.setBackground(new Color(210, 45, 87));
 			}
 			@Override
 			public void mouseExited(MouseEvent e) {
-				btnSalir.setBackground(new Color(0, 51, 102));
+				btnSalir.setBackground(new Color(159, 11, 47));
 			}
 		});
 		btnSalir.setFocusPainted(false);
@@ -262,10 +262,10 @@ public class VentanaPrincipal extends JFrame {
 		btnSalir.setForeground(Color.WHITE);
 		btnSalir.setFont(new Font("Roboto", Font.BOLD, 16));
 		btnSalir.setBorder(null);
-		btnSalir.setBackground(new Color(0, 51, 102));
+		btnSalir.setBackground(new Color(159, 11, 47));
 		
 		JPanel panelSuperior = new JPanel();
-		panelSuperior.setBackground(new Color(51, 102, 153));
+		panelSuperior.setBackground(new Color(210, 45, 87));
 		panelSuperior.setBounds(300, 46, 884, 131);
 		contentPane.add(panelSuperior);
 		panelSuperior.setLayout(null);
@@ -281,7 +281,7 @@ public class VentanaPrincipal extends JFrame {
 		textFieldFechaSistema.setEditable(false);
 		textFieldFechaSistema.setFont(new Font("Roboto", Font.PLAIN, 20));
 		textFieldFechaSistema.setBorder(null);
-		textFieldFechaSistema.setBackground(new Color(51, 102, 153));
+		textFieldFechaSistema.setBackground(new Color(210, 45, 87));
 		textFieldFechaSistema.setBounds(60, 71, 310, 35);
 		panelSuperior.add(textFieldFechaSistema);
 		textFieldFechaSistema.setColumns(10);
@@ -291,7 +291,7 @@ public class VentanaPrincipal extends JFrame {
 		textFieldUsuarioConectado.setForeground(Color.WHITE);
 		textFieldUsuarioConectado.setEditable(false);
 		textFieldUsuarioConectado.setBorder(null);
-		textFieldUsuarioConectado.setBackground(new Color(51, 102, 153));
+		textFieldUsuarioConectado.setBackground(new Color(210, 45, 87));
 		textFieldUsuarioConectado.setFont(new Font("Roboto", Font.PLAIN, 16));
 		textFieldUsuarioConectado.setColumns(10);
 		textFieldUsuarioConectado.setBounds(132, 41, 238, 20);
@@ -299,11 +299,11 @@ public class VentanaPrincipal extends JFrame {
 		
 		panelPrincipalVentanas = new JPanel();
 		panelPrincipalVentanas.setBackground(Color.WHITE);
-		panelPrincipalVentanas.setBounds(300, 176, 884, 485);
+		panelPrincipalVentanas.setBounds(300, 176, 885, 485);
 		contentPane.add(panelPrincipalVentanas);
 		panelPrincipalVentanas.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("CIVU");
+		JLabel lblNewLabel = new JLabel("Panadería Mojipan");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Roboto", Font.BOLD, 20));
 		lblNewLabel.setBounds(300, 11, 884, 24);

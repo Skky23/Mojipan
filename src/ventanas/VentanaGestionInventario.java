@@ -369,13 +369,6 @@ public class VentanaGestionInventario extends JPanel {
 		textFieldPrecioUnidad.setText(null);
 		textFieldNombreProducto.setText(null);
 		textFieldIdItem.setText(null);
-		textFieldMarca.setText(null);
-		
-		comboBoxProveedor.setSelectedIndex(0);
-		comboBoxColor.setSelectedIndex(0);
-		comboBoxTalla.setSelectedIndex(0);
-		comboBoxTipo.setSelectedIndex(0);
-		comboBoxGenero.setSelectedIndex(0);
 		
 		
 	}

@@ -45,7 +45,7 @@ public class VentanaPerfil extends JPanel {
 		textFieldIdUsuario.setColumns(10);
 		
 		JSeparator separator = new JSeparator();
-		separator.setForeground(new Color(0, 153, 255));
+		separator.setForeground(new Color(210, 45, 87));
 		separator.setBounds(30, 131, 370, 2);
 		add(separator);
 		
@@ -65,12 +65,12 @@ public class VentanaPerfil extends JPanel {
 		add(textFieldNombreUsuario);
 		
 		JSeparator separator_1 = new JSeparator();
-		separator_1.setForeground(new Color(0, 153, 255));
+		separator_1.setForeground(new Color(210, 45, 87));
 		separator_1.setBounds(30, 229, 360, 2);
 		add(separator_1);
 		
 		JSeparator separator_3 = new JSeparator();
-		separator_3.setForeground(new Color(0, 153, 255));
+		separator_3.setForeground(new Color(210, 45, 87));
 		separator_3.setBounds(462, 131, 370, 2);
 		add(separator_3);
 		
@@ -90,7 +90,7 @@ public class VentanaPerfil extends JPanel {
 		add(textFieldTelefonoUsuario);
 		
 		JSeparator separator_4 = new JSeparator();
-		separator_4.setForeground(new Color(0, 153, 255));
+		separator_4.setForeground(new Color(210, 45, 87));
 		separator_4.setBounds(462, 229, 370, 2);
 		add(separator_4);
 		

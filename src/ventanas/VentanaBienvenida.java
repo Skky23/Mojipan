@@ -19,11 +19,17 @@ public class VentanaBienvenida extends JPanel {
 		setBackground(new Color(255, 255, 255));
 		setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Bienvenido al Sistema CIVU");
+		JLabel lblNewLabel = new JLabel("Bienvenido al Sistema de información");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Roboto", Font.BOLD, 40));
-		lblNewLabel.setBounds(107, 160, 657, 83);
+		lblNewLabel.setBounds(30, 150, 825, 90);
 		add(lblNewLabel);
+		
+		JLabel lblNewLabel1 = new JLabel("Panadería Mojipan");
+		lblNewLabel1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel1.setFont(new Font("Roboto", Font.BOLD, 40));
+		lblNewLabel1.setBounds(210, 250, 465, 90);
+		add(lblNewLabel1);
 
 	}
 }
