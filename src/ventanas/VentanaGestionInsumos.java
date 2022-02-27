@@ -21,7 +21,7 @@ import java.awt.event.KeyEvent;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 
-public class VentanaGestionInventario extends JPanel {
+public class VentanaGestionInsumos extends JPanel {
 	public JTextField textFieldBuscarItem;
 	public JTable table;
 	DefaultTableModel model;
@@ -34,7 +34,6 @@ public class VentanaGestionInventario extends JPanel {
 	public JButton btnLimpiar;
 	public JTextField textFieldCantidad;
 	public JTextField textFieldCostoUnidad;
-	public JTextField textFieldPrecioUnidad;
 	public JTextField textFieldNombreProducto;
 	public JTextField textFieldIdItem;
 	public JComboBox comboBoxArgumentoBusqueda;
@@ -43,12 +42,12 @@ public class VentanaGestionInventario extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public VentanaGestionInventario() {
+	public VentanaGestionInsumos() {
 		setBorder(new LineBorder(new Color(0, 0, 0)));
 		setBackground(new Color(255, 255, 255));
 		setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Productos");
+		JLabel lblNewLabel = new JLabel("Insumos");
 		lblNewLabel.setFont(new Font("Roboto", Font.BOLD, 20));
 		lblNewLabel.setBounds(30, 30, 260, 26);
 		add(lblNewLabel);
@@ -115,7 +114,7 @@ public class VentanaGestionInventario extends JPanel {
 		table.setBackground(Color.WHITE);
 		
 		model = new DefaultTableModel();
-		Object[] column = {"ID", "Nombre", "Cantidad Disponible","Precio Unidad","Costo Unidad"};
+		Object[] column = {"ID", "Nombre", "Cantidad Disponible", "Costo Unidad"};
 		Object[] row = new Object[0];
 		model.setColumnIdentifiers(column);
 		table.setModel(model);
@@ -141,7 +140,7 @@ public class VentanaGestionInventario extends JPanel {
 		
 		JLabel lblNewLabel_1_1 = new JLabel("Cantidad");
 		lblNewLabel_1_1.setFont(new Font("Roboto", Font.BOLD, 14));
-		lblNewLabel_1_1.setBounds(30, 139, 244, 17);
+		lblNewLabel_1_1.setBounds(563, 80, 190, 17);
 		add(lblNewLabel_1_1);
 		
 		textFieldCantidad = new JTextField();
@@ -169,7 +168,7 @@ public class VentanaGestionInventario extends JPanel {
 		textFieldCantidad.setColumns(10);
 		textFieldCantidad.setBorder(null);
 		textFieldCantidad.setBackground(Color.WHITE);
-		textFieldCantidad.setBounds(30, 158, 244, 20);
+		textFieldCantidad.setBounds(563, 99, 244, 20);
 		add(textFieldCantidad);
 		
 		textFieldCostoUnidad = new JTextField();
@@ -197,45 +196,13 @@ public class VentanaGestionInventario extends JPanel {
 		textFieldCostoUnidad.setColumns(10);
 		textFieldCostoUnidad.setBorder(null);
 		textFieldCostoUnidad.setBackground(Color.WHITE);
-		textFieldCostoUnidad.setBounds(293, 158, 247, 20);
+		textFieldCostoUnidad.setBounds(30, 160, 120, 20);
 		add(textFieldCostoUnidad);
 		
 		JLabel lblNewLabel_1_1_1_1 = new JLabel("Costo Unidad");
 		lblNewLabel_1_1_1_1.setFont(new Font("Roboto", Font.BOLD, 14));
-		lblNewLabel_1_1_1_1.setBounds(293, 139, 247, 17);
+		lblNewLabel_1_1_1_1.setBounds(30, 141, 247, 17);
 		add(lblNewLabel_1_1_1_1);
-		
-		textFieldPrecioUnidad = new JTextField();
-		textFieldPrecioUnidad.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyTyped(KeyEvent e) {
-				
-				char validar=e.getKeyChar();
-				
-				if(Character.isLetter(validar) || (e.getKeyChar()>32 && e.getKeyChar()<48) || (e.getKeyChar()>57 && e.getKeyChar()<65) || (e.getKeyChar()>90 && e.getKeyChar()<97) || (e.getKeyChar()>122 && e.getKeyChar()<127)) {
-					getToolkit().beep();
-					e.consume();
-					JOptionPane.showMessageDialog(null, "Ingresar solo numeros");
-				}
-				
-				if(textFieldPrecioUnidad.getText().length()>= 7) {
-					getToolkit().beep();
-					e.consume();
-					JOptionPane.showMessageDialog(null, "Ingresar 7 numeros o menos");
-				}
-			}
-		});
-		textFieldPrecioUnidad.setFont(new Font("Roboto", Font.PLAIN, 14));
-		textFieldPrecioUnidad.setColumns(10);
-		textFieldPrecioUnidad.setBorder(null);
-		textFieldPrecioUnidad.setBackground(Color.WHITE);
-		textFieldPrecioUnidad.setBounds(564, 99, 247, 20);
-		add(textFieldPrecioUnidad);
-		
-		JLabel lblNewLabel_1_1_3_2 = new JLabel("Precio Unidad");
-		lblNewLabel_1_1_3_2.setFont(new Font("Roboto", Font.BOLD, 14));
-		lblNewLabel_1_1_3_2.setBounds(564, 80, 247, 17);
-		add(lblNewLabel_1_1_3_2);
 		
 		JLabel lblNewLabel_1_1_1_1_1_1 = new JLabel("Nombre");
 		lblNewLabel_1_1_1_1_1_1.setFont(new Font("Roboto", Font.BOLD, 14));
@@ -268,7 +235,7 @@ public class VentanaGestionInventario extends JPanel {
 		textFieldNombreProducto.setBounds(293, 99, 247, 20);
 		add(textFieldNombreProducto);
 		
-		JLabel lblNewLabel_1_1_1_1_1 = new JLabel("ID Item");
+		JLabel lblNewLabel_1_1_1_1_1 = new JLabel("ID ");
 		lblNewLabel_1_1_1_1_1.setFont(new Font("Roboto", Font.BOLD, 14));
 		lblNewLabel_1_1_1_1_1.setBounds(30, 80, 244, 17);
 		add(lblNewLabel_1_1_1_1_1);
@@ -330,19 +297,14 @@ public class VentanaGestionInventario extends JPanel {
 		separator_7_1_1.setBounds(293, 122, 247, 2);
 		add(separator_7_1_1);
 		
-		JSeparator separator_7_1_2 = new JSeparator();
-		separator_7_1_2.setForeground(new Color(0, 153, 255));
-		separator_7_1_2.setBounds(564, 122, 247, 2);
-		add(separator_7_1_2);
-		
 		JSeparator separator_7_1_4 = new JSeparator();
 		separator_7_1_4.setForeground(new Color(0, 153, 255));
-		separator_7_1_4.setBounds(30, 181, 244, 2);
+		separator_7_1_4.setBounds(563, 122, 244, 2);
 		add(separator_7_1_4);
 		
 		JSeparator separator_7_1_1_1 = new JSeparator();
 		separator_7_1_1_1.setForeground(new Color(0, 153, 255));
-		separator_7_1_1_1.setBounds(293, 181, 247, 2);
+		separator_7_1_1_1.setBounds(30, 183, 247, 2);
 		add(separator_7_1_1_1);
 
 	}
@@ -351,13 +313,9 @@ public class VentanaGestionInventario extends JPanel {
 		
 		textFieldCantidad.setText(null);
 		textFieldCostoUnidad.setText(null);
-		textFieldPrecioUnidad.setText(null);
 		textFieldNombreProducto.setText(null);
 		textFieldIdItem.setText(null);
-<<<<<<< HEAD
-=======
 
->>>>>>> df599818a95647a5732d035df67a312387054f10
 		
 		
 	}
@@ -380,10 +338,10 @@ public class VentanaGestionInventario extends JPanel {
 	    switch (parametro) {
 	    
         case "ID":
-        	paramentroSQL = "id_producto"; 
+        	paramentroSQL = "id_insumo"; 
             break;
         case "Nombre":
-        	paramentroSQL = "nombre_producto";
+        	paramentroSQL = "nombre_insumo";
             break;
 	    }
 		

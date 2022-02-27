@@ -247,7 +247,7 @@ public class VentanaGestionClientes extends JPanel {
 		table.setBackground(Color.WHITE);
 		
 		model = new DefaultTableModel();
-		Object[] column = {"ID","Nombre","Telefono","FechaNacimiento"};
+		Object[] column = {"ID","Nombre","Telefono"};
 		Object[] row = new Object[0];
 		model.setColumnIdentifiers(column);
 		table.setModel(model);

@@ -2,9 +2,6 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Date;
-import java.time.LocalDate;
-
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -66,6 +63,10 @@ public class ControladorGestionUsuarios implements ActionListener{
 					int id = Integer.valueOf(ventanaGestionUsuarios.textFieldIdUsuario.getText());
 					consultaUsuario.eliminar(id);
 					ventanaGestionUsuarios.limpiarCasillas();
+					
+					ventanaGestionUsuarios.borrarElementosTabla();
+					consultaUsuario.poblarTabla(ventanaGestionUsuarios.table);
+					
 				}else {
 					JOptionPane.showMessageDialog(null, "Ingrese el ID del empleado que desea eliminar");
 				}
@@ -78,6 +79,11 @@ public class ControladorGestionUsuarios implements ActionListener{
 				ponerValoresEnModeloUsuario();
 				consultaUsuario.modificar(empleado);
 				ventanaGestionUsuarios.limpiarCasillas();
+				
+				ventanaGestionUsuarios.borrarElementosTabla();
+				consultaUsuario.poblarTabla(ventanaGestionUsuarios.table);
+				
+				
 			}else {
 				JOptionPane.showMessageDialog(null, "Complete todos los campos con el formato correcto");
 			}
