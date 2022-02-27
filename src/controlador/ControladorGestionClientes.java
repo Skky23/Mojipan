@@ -2,9 +2,6 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Date;
-import java.time.LocalDate;
-
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -125,7 +122,6 @@ public class ControladorGestionClientes implements ActionListener {
 		cliente.setId(Integer.valueOf(ventanaGestionClientes.textFieldIdCliente.getText()));
 		cliente.setNombre(ventanaGestionClientes.textFieldNombreCliente.getText());
 		cliente.setTelefono(ventanaGestionClientes.textFieldTelefonoCliente.getText());
-		cliente.setFechaNacimiento(Date.valueOf(fechaNacimiento()));
 	}
 	
 	public void ponerValoresEnArreglo(Object[] arreglo) {
@@ -133,7 +129,6 @@ public class ControladorGestionClientes implements ActionListener {
 		arreglo[0]= cliente.getId();
 		arreglo[1]= cliente.getNombre();
 		arreglo[2]= cliente.getTelefono();
-		arreglo[3]= cliente.getFechaNacimiento();
 
 			
 	}
@@ -159,40 +154,8 @@ public class ControladorGestionClientes implements ActionListener {
 		ventanaGestionClientes.textFieldIdCliente.setText((ventanaGestionClientes.table.getValueAt(fila, 0).toString()));
 		ventanaGestionClientes.textFieldNombreCliente.setText((String) ventanaGestionClientes.table.getValueAt(fila, 1));
 		ventanaGestionClientes.textFieldTelefonoCliente.setText((String) ventanaGestionClientes.table.getValueAt(fila, 2));
-		ponerFechaTablaEnCasillas(fila);
-
-		
+	
 	}
 	
-	public void ponerFechaTablaEnCasillas(int fila) {
-		
-		Date date =  (Date) ventanaGestionClientes.table.getValueAt(fila, 3);
-		
-		LocalDate  localDate = date.toLocalDate();
-		
-		int day = localDate.getDayOfMonth();
-		int month = localDate.getMonthValue();
-		int year = localDate.getYear();
-		
-		System.out.println(year);
-		System.out.println(month);
-		System.out.println(day);
-		
-		ventanaGestionClientes.comboBoxYear.setSelectedIndex(year-1920);
-		ventanaGestionClientes.comboBoxMonth.setSelectedIndex(month);
-		ventanaGestionClientes.comboBoxDay.setSelectedIndex(day);
-		
-	}
-	
-	public String fechaNacimiento() {
-		
-		String fecha ="";
-		
-		fecha = ventanaGestionClientes.comboBoxYear.getSelectedItem().toString() + "-" + ventanaGestionClientes.comboBoxMonth.getSelectedItem().toString() + "-" + ventanaGestionClientes.comboBoxDay.getSelectedItem().toString();
-		
-		
-		return fecha;
-		
-	}
 
 }

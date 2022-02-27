@@ -1,7 +1,6 @@
 package modelo;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -18,7 +17,7 @@ public class ConsultaCliente extends Conexion {
 	        ResultSet rs = null;
 	        Connection con = getConnection();
 	        int cedula = id;
-	        String sql = "SELECT * FROM cliente WHERE cedula_cliente='"+cedula+"' ";
+	        String sql = "SELECT * FROM clientes WHERE id_cliente='"+cedula+"' ";
 	        
 	        try{
 	           
@@ -28,10 +27,9 @@ public class ConsultaCliente extends Conexion {
 	           
 	           if(rs.next()){
 	        	   
-	        	   cliente.setId(rs.getInt("cedula_cliente"));	  
+	        	   cliente.setId(rs.getInt("id_cliente"));	  
 	        	   cliente.setNombre(rs.getString("nombre_cliente"));
 	        	   cliente.setTelefono(rs.getString("contacto_cliente"));
-	        	   cliente.setFechaNacimiento(rs.getDate("fecha_nacimiento_cliente"));
 	        	   
 	        	   
 	               return true;
@@ -59,7 +57,7 @@ public class ConsultaCliente extends Conexion {
 	        
 	    	int idUsu = id;
 	        Connection con = getConnection();
-	        String sql = "SELECT * FROM cliente WHERE cedula_cliente='"+idUsu+"'";
+	        String sql = "SELECT * FROM clientes WHERE id_cliente='"+idUsu+"'";
 	        
 	        try{
 	        	Statement st = con.createStatement();
@@ -95,14 +93,11 @@ public class ConsultaCliente extends Conexion {
 			
 				String nombre = cliente.getNombre();
 				String telefono = cliente.getTelefono();
-				Date fechaNacimiento = cliente.getFechaNacimiento();
-			
-				
-				
+											
 				
 				Connection con = getConnection();
-		        String sql = "INSERT INTO cliente (cedula_cliente, nombre_cliente, contacto_cliente, fecha_nacimiento_cliente)"
-		        		+ "values ('"+ident+"','"+nombre+"','"+telefono+"','"+fechaNacimiento+"')";
+		        String sql = "INSERT INTO clientes (id_cliente, nombre_cliente, contacto_cliente)"
+		        		+ "values ('"+ident+"','"+nombre+"','"+telefono+"')";
 		        
 		        try{
 		           
@@ -141,7 +136,7 @@ public class ConsultaCliente extends Conexion {
 	        
 	        Connection con = getConnection();
 	        int idUsu = id;
-	        String sql = "DELETE from cliente WHERE cedula_cliente='"+idUsu+"'";
+	        String sql = "DELETE from clientes WHERE id_cliente='"+idUsu+"'";
 	        
 	        try{
 	        	Statement st = con.createStatement();
@@ -172,11 +167,10 @@ public class ConsultaCliente extends Conexion {
 	    	int id = cliente.getId();
 			String nombre = cliente.getNombre();
 			String telefono = cliente.getTelefono();
-			Date fechaNacimiento = cliente.getFechaNacimiento();
 					
 			Connection con = getConnection();
 				
-			String sql = "UPDATE cliente SET cedula_cliente='"+id+"',nombre_cliente='"+nombre+"',contacto_cliente='"+telefono+"',fecha_nacimiento_cliente='"+fechaNacimiento+"' WHERE cedula_cliente='"+id+"'";
+			String sql = "UPDATE clientes SET id_cliente='"+id+"',nombre_cliente='"+nombre+"',contacto_cliente='"+telefono+"' WHERE id_cliente='"+id+"'";
 			        	
 				
 		        try{
@@ -212,7 +206,7 @@ public class ConsultaCliente extends Conexion {
 	    	
 	    	
 	        Connection con = getConnection();
-	        String sql = "SELECT * FROM cliente";
+	        String sql = "SELECT * FROM clientes";
 	        
 	        try{
 	        	Statement st = con.createStatement();
@@ -221,12 +215,11 @@ public class ConsultaCliente extends Conexion {
 	           
 	           while(rs.next()){
 	        	   
-	        	int cedula = rs.getInt("cedula_cliente");   
+	        	int cedula = rs.getInt("id_cliente");   
 	        	String nombre = rs.getString("nombre_cliente");
 	        	String contacto = rs.getString("contacto_cliente");
-	        	Date dateObject = rs.getDate("fecha_nacimiento_cliente");
 	        	
-	        	Object tbData[] = {cedula, nombre, contacto, dateObject};
+	        	Object tbData[] = {cedula, nombre, contacto};
 	        	
 	        	DefaultTableModel tblModel = (DefaultTableModel)table.getModel();
 	        	
@@ -250,4 +243,3 @@ public class ConsultaCliente extends Conexion {
 	
 
 }
-

@@ -18,7 +18,7 @@ public class ConsultaUsuario extends Conexion{
 	        ResultSet rs = null;
 	        Connection con = getConnection();
 	        int cedula = id;
-	        String sql = "SELECT * FROM empleados WHERE cedula_empleado='"+cedula+"' ";
+	        String sql = "SELECT * FROM usuarios WHERE id_usuario='"+cedula+"' ";
 	        
 	        try{
 	           
@@ -28,13 +28,10 @@ public class ConsultaUsuario extends Conexion{
 	           
 	           if(rs.next()){
 	        	   
-	        	   usuario.setId(rs.getInt("cedula_empleado"));
-	        	   usuario.setPassword(rs.getString("password_empleado"));
-	        	   usuario.setCargo(rs.getString("cargo_empleado"));
-	        	   usuario.setNombre(rs.getString("nombre_empleado"));
-	        	   usuario.setTelefono(rs.getString("contacto_empleado"));
-	        	   usuario.setFechaNacimiento(rs.getDate("fecha_nacimiento_empleado"));
-	        	   
+	        	   usuario.setId(rs.getInt("id_usuario"));
+	        	   usuario.setPassword(rs.getString("contraseña"));
+	        	   usuario.setNombre(rs.getString("nombre_usuario"));
+	        	   usuario.setTelefono(rs.getString("contacto_usuario"));
 	        	   
 	               return true;
 	           }else {
@@ -61,7 +58,7 @@ public class ConsultaUsuario extends Conexion{
 	        
 	    	int idUsu = id;
 	        Connection con = getConnection();
-	        String sql = "SELECT * FROM empleados WHERE cedula_empleado='"+idUsu+"'";
+	        String sql = "SELECT * FROM usuarios WHERE id_usuario='"+idUsu+"'";
 	        
 	        try{
 	        	Statement st = con.createStatement();
@@ -97,16 +94,11 @@ public class ConsultaUsuario extends Conexion{
 			
 				String nombre = usuario.getNombre();
 				String telefono = usuario.getTelefono();
-				String cargo = usuario.getCargo();
 				String password = usuario.getPassword();
-				Date fechaNacimiento = usuario.getFechaNacimiento();
-			
-				
-				
-				
+							
 				Connection con = getConnection();
-		        String sql = "INSERT INTO empleados (cedula_empleado, password_empleado, cargo_empleado, nombre_empleado, contacto_empleado, fecha_nacimiento_empleado)"
-		        		+ "values ('"+ident+"', '"+password+"','"+cargo+"','"+nombre+"','"+telefono+"','"+fechaNacimiento+"')";
+		        String sql = "INSERT INTO usuarios (id_usuario, contraseña, nombre_usuario, contacto_usuario)"
+		        		+ "values ('"+ident+"', '"+password+"','"+nombre+"','"+telefono+"')";
 		        
 		        try{
 		           
@@ -145,7 +137,7 @@ public class ConsultaUsuario extends Conexion{
 	        
 	        Connection con = getConnection();
 	        int idUsu = id;
-	        String sql = "DELETE from empleados WHERE cedula_empleado='"+idUsu+"'";
+	        String sql = "DELETE from usuarios WHERE id_usuario='"+idUsu+"'";
 	        
 	        try{
 	        	Statement st = con.createStatement();
@@ -174,15 +166,14 @@ public class ConsultaUsuario extends Conexion{
 	    public boolean modificar(Usuario usuario){
 	    	
 	    	int id = usuario.getId();
+	    	String password = usuario.getPassword();
 			String nombre = usuario.getNombre();
 			String telefono = usuario.getTelefono();
-			String cargo = usuario.getCargo();
-			String password = usuario.getPassword();
-			Date fechaNacimiento = usuario.getFechaNacimiento();
+			
 					
 			Connection con = getConnection();
 				
-			String sql = "UPDATE empleados SET cedula_empleado='"+id+"',password_empleado='"+password+"',cargo_empleado='"+cargo+"',nombre_empleado='"+nombre+"',contacto_empleado='"+telefono+"',fecha_nacimiento_empleado='"+fechaNacimiento+"' WHERE cedula_empleado='"+id+"'";
+			String sql = "UPDATE usuarios SET id_usuario='"+id+"',contraseña='"+password+"',nombre_empleado='"+nombre+"',contacto_empleado='"+telefono+"' WHERE id_usuario='"+id+"'";
 			        	
 				
 		        try{
@@ -218,7 +209,7 @@ public class ConsultaUsuario extends Conexion{
 	    	
 	    	
 	        Connection con = getConnection();
-	        String sql = "SELECT * FROM empleados";
+	        String sql = "SELECT * FROM usuarios";
 	        
 	        try{
 	        	Statement st = con.createStatement();
@@ -227,14 +218,12 @@ public class ConsultaUsuario extends Conexion{
 	           
 	           while(rs.next()){
 	        	   
-	        	int cedula = rs.getInt("cedula_empleado");   
-	        	String password = rs.getString("password_empleado");
-	        	String cargo = rs.getString("cargo_empleado");
-	        	String nombre = rs.getString("nombre_empleado");
-	        	String contacto = rs.getString("contacto_empleado");
-	        	Date dateObject = rs.getDate("fecha_nacimiento_empleado");
+	        	int cedula = rs.getInt("id_usuario");   
+	        	String password = rs.getString("contraseña");
+	        	String nombre = rs.getString("nombre_usuario");
+	        	String contacto = rs.getString("contacto_usuario");
 	        	
-	        	Object tbData[] = {cedula, nombre, contacto, cargo, password, dateObject};
+	        	Object tbData[] = {cedula, nombre, contacto, password};
 	        	
 	        	DefaultTableModel tblModel = (DefaultTableModel)table.getModel();
 	        	

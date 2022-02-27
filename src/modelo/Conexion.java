@@ -5,10 +5,10 @@ import java.sql.DriverManager;
 
 public class Conexion {
 	
- 	private final String host = "castor.db.elephantsql.com";
- 	private final String database = "xkdnfcrd";
- 	private final String user = "xkdnfcrd";
- 	private final String password = "wYGGfLf_hzzASbKfDsZuFw9-NJA5MvYR";
+ 	private final String host = "ziggy.db.elephantsql.com";
+ 	private final String database = "bdgbnphi";
+ 	private final String user = "bdgbnphi";
+ 	private final String password = "CDdiEy46pGLk1QGzKN3kHQxhuiw_PWvq";
    
     
     private Connection con = null;
@@ -38,4 +38,3 @@ public class Conexion {
     }
 
 }
-

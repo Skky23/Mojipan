@@ -6,5 +6,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="src/conectorpostgresql/postgresql-42.2.23.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

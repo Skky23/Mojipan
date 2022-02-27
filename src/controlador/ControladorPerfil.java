@@ -17,8 +17,6 @@ public class ControladorPerfil {
 	public void ponerInformacionUsuario() {
 		ventanaPerfil.textFieldIdUsuario.setText(String.valueOf(persona.getId()));
 		ventanaPerfil.textFieldNombreUsuario.setText(persona.getNombre());
-		ventanaPerfil.textFieldFechaNacimientoUsuario.setText(persona.getFechaNacimiento().toString());
-		ventanaPerfil.textFieldCargoUsuario.setText(persona.getCargo());
 		ventanaPerfil.textFieldTelefonoUsuario.setText(persona.getTelefono());
 		ventanaPerfil.textFieldPasswordUsuario.setText(persona.getPassword());
 		

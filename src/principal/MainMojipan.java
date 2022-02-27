@@ -3,7 +3,7 @@ package principal;
 import controlador.ControladorLogin;
 import ventanas.VentanaLogin;
 
-public class Main {
+public class MainMojipan {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -12,7 +12,7 @@ public class Main {
 		VentanaLogin ventanaLogin = new VentanaLogin();
 		ControladorLogin controladorLogin = new ControladorLogin(ventanaLogin);
 		controladorLogin.iniciar();
-		
+
 	}
 
 }

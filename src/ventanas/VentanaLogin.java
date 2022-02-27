@@ -122,7 +122,7 @@ public class VentanaLogin extends JFrame {
 		separator.setBounds(50, 215, 400, 2);
 		contentPane.add(separator);
 		
-		JLabel lblNewLabel_3 = new JLabel("CALZADO EZE");
+		JLabel lblNewLabel_3 = new JLabel("MOJIPAN");
 		lblNewLabel_3.setFont(new Font("Roboto", Font.BOLD, 24));
 		lblNewLabel_3.setBounds(105, 40, 351, 45);
 		contentPane.add(lblNewLabel_3);
@@ -220,7 +220,6 @@ public class VentanaLogin extends JFrame {
 	}
 	
 }
-
 
 
 

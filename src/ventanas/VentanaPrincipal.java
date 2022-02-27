@@ -159,7 +159,7 @@ public class VentanaPrincipal extends JFrame {
 		btnGestionClientes.setBorder(null);
 		btnGestionClientes.setBackground(new Color(0, 51, 102));
 		
-		btnGestionProveedores = new JButton("   Gestión de Proveedores");
+		btnGestionProveedores = new JButton("   Gestion de Proveedores");
 		btnGestionProveedores.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -310,4 +310,3 @@ public class VentanaPrincipal extends JFrame {
 		contentPane.add(lblNewLabel);
 	}
 }
-

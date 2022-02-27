@@ -61,7 +61,7 @@ public class ControladorLogin implements ActionListener {
 			con = conexion.getConnection();
 
 			int userId = Integer.parseInt(ventanaLogin.usuarioIngresado());
-			String sql = "select * from empleados where cedula_empleado='"+userId+"' and password_empleado='"+password+"'";
+			String sql = "select * from usuarios where id_usuario='"+userId+"' and contraseña='"+password+"'";
 		
 			try {
 				
@@ -74,9 +74,8 @@ public class ControladorLogin implements ActionListener {
 					//guardo la informacion del usuario que se encuentra en la base de datos en el objeto persona
 					consultaUsuario.buscar(persona, userId);
 					
-					String cargo = persona.getCargo();
+										
 					
-					if(cargo.equals("administrador")) {
 						
 						JOptionPane.showMessageDialog(null, "Login exitoso");
 						iniciarVentanaPrincipal();
@@ -89,20 +88,6 @@ public class ControladorLogin implements ActionListener {
 			            }
 						
 						
-					}
-					
-					if(cargo.equals("vendedor")) {
-						
-						JOptionPane.showMessageDialog(null, "Login exitoso");
-						iniciarVentanaPrincipalVendedor();
-	
-						
-						try{
-			                con.close();
-			            }catch (SQLException e){
-			                System.err.println(e);
-			            }
-					}
 						
 				} else {
 					
@@ -159,37 +144,6 @@ public class ControladorLogin implements ActionListener {
 		controladorMenuPrincipal = new ControladorMenuPrincipal(ventanaPrincipal, persona);
 		
 	}
-	
-	
-	private void iniciarVentanaPrincipalVendedor() {
-		ventanaLogin.dispose();
-		ventanaPrincipal = new VentanaPrincipal();
-		ventanaPrincipal.setTitle("Menu Principal");
-		ventanaPrincipal.btnGestionUsuarios.setEnabled(false);
-		ventanaPrincipal.btnInventario.setEnabled(false);
-		ventanaPrincipal.btnReportes.setEnabled(false);
-		ventanaPrincipal.btnGestionProveedores.setEnabled(false);
-		LocalDate date = LocalDate.now();
-		int mes = date.getMonthValue();
-		int dia = date.getDayOfMonth();
-		System.out.println(mes);
-		ventanaPrincipal.textFieldFechaSistema.setText("Hoy es " + obtenerMes(mes)+ " " + dia + " " + "del año " + 2022 );
-		ventanaPrincipal.textFieldUsuarioConectado.setText(persona.getNombre());
-		ventanaPrincipal.setVisible(true);
-		ventanaPrincipal.setLocationRelativeTo(null);
-		
-		ventanaBienvenida.setSize(885, 485);
-		ventanaBienvenida.setLocation(0, 0);
-		ventanaPrincipal.panelPrincipalVentanas.add(ventanaBienvenida);
-		ventanaPrincipal.panelPrincipalVentanas.revalidate();
-		ventanaPrincipal.panelPrincipalVentanas.repaint();
-		
-		controladorMenuPrincipal = new ControladorMenuPrincipal(ventanaPrincipal, persona);
-		
-	}
-	
-	
-	
 	
 	
 	

@@ -1,12 +1,14 @@
+
 package controlador;
+
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JPanel;
 import modelo.Usuario;
 import ventanas.VentanaGestionClientes;
-import ventanas.VentanaGestionInventario;
-import ventanas.VentanaGestionProveedores;
+//import ventanas.VentanaGestionInventario;
+//import ventanas.VentanaGestionProveedores;
 import ventanas.VentanaGestionUsuarios;
 import ventanas.VentanaPerfil;
 import ventanas.VentanaPrincipal;
@@ -17,12 +19,17 @@ public class ControladorMenuPrincipal implements ActionListener{
 	VentanaPerfil ventanaPerfil;
 	VentanaGestionUsuarios ventanaGestionUsuarios;
 	VentanaGestionClientes ventanaGestionClientes;
+	/*
 	VentanaGestionProveedores ventanaGestionProveedores;
 	VentanaGestionInventario ventanaGestionInventario;
+	*/
 	ControladorPerfil controladorPerfil;
 	ControladorGestionUsuarios controladorGestionUsuarios;
 	ControladorGestionClientes controladorGestionClientes;
+	/*
 	ControladorGestionProveedores controladorGestionProveedores;
+	ControladorGestionInventario controladorGestionInventario;
+	*/
 	Usuario empleado;
 	
 	
@@ -59,22 +66,20 @@ public ControladorMenuPrincipal(VentanaPrincipal ventanaPrincipal, Usuario emple
 		}
 		
 		if(e.getSource() == ventanaPrincipal.btnGestionClientes) {
+			
 			ventanaGestionClientes = new VentanaGestionClientes();
 			controladorGestionClientes = new ControladorGestionClientes(ventanaGestionClientes);
 			mostrarPanel(ventanaGestionClientes);
 		}
 	
-		if(e.getSource() == ventanaPrincipal.btnGestionProveedores) {
-			ventanaGestionProveedores = new VentanaGestionProveedores();
-			controladorGestionProveedores = new ControladorGestionProveedores(ventanaGestionProveedores);
-			mostrarPanel(ventanaGestionProveedores);
-		}
 	
 		if(e.getSource() == ventanaPrincipal.btnInventario) {
+			/*
 			ventanaGestionInventario = new VentanaGestionInventario();
+			controladorGestionInventario  = new ControladorGestionInventario(ventanaGestionInventario);
 			//controlador gestion inventario
 			mostrarPanel(ventanaGestionInventario);
-			
+			*/
 		}
 	
 		if(e.getSource() == ventanaPrincipal.btnVentas) {

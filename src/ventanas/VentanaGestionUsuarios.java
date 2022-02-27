@@ -39,10 +39,6 @@ public class VentanaGestionUsuarios extends JPanel {
 	public JButton btnLimpiar;
 	public JButton btnSeleccionar;
 	public JButton btnTraerInfoDB;
-	public JComboBox comboBoxCargo;
-	public JComboBox comboBoxYear;
-	public JComboBox comboBoxMonth;
-	public JComboBox comboBoxDay;
 
 	/**
 	 * Create the panel.
@@ -149,21 +145,6 @@ public class VentanaGestionUsuarios extends JPanel {
 		separator_1.setBounds(311, 123, 261, 2);
 		add(separator_1);
 		
-		JLabel lblNewLabel_1_2 = new JLabel("Fecha de Nacimiento (YYYY-MM-DD)");
-		lblNewLabel_1_2.setFont(new Font("Roboto", Font.BOLD, 14));
-		lblNewLabel_1_2.setBounds(592, 80, 236, 17);
-		add(lblNewLabel_1_2);
-		
-		JSeparator separator_2 = new JSeparator();
-		separator_2.setForeground(new Color(0, 153, 255));
-		separator_2.setBounds(592, 123, 261, 2);
-		add(separator_2);
-		
-		JLabel lblNewLabel_1_3 = new JLabel("Cargo");
-		lblNewLabel_1_3.setFont(new Font("Roboto", Font.BOLD, 14));
-		lblNewLabel_1_3.setBounds(30, 143, 261, 17);
-		add(lblNewLabel_1_3);
-		
 		JSeparator separator_3 = new JSeparator();
 		separator_3.setForeground(new Color(0, 153, 255));
 		separator_3.setBounds(30, 185, 261, 2);
@@ -171,7 +152,7 @@ public class VentanaGestionUsuarios extends JPanel {
 		
 		JLabel lblNewLabel_1_4 = new JLabel("Telefono");
 		lblNewLabel_1_4.setFont(new Font("Roboto", Font.BOLD, 14));
-		lblNewLabel_1_4.setBounds(311, 143, 261, 17);
+		lblNewLabel_1_4.setBounds(30, 143, 261, 17);
 		add(lblNewLabel_1_4);
 		
 		textFieldTelefonoUsuario = new JTextField();
@@ -199,7 +180,7 @@ public class VentanaGestionUsuarios extends JPanel {
 		textFieldTelefonoUsuario.setBackground(new Color(255, 255, 255));
 		textFieldTelefonoUsuario.setBorder(null);
 		textFieldTelefonoUsuario.setColumns(10);
-		textFieldTelefonoUsuario.setBounds(311, 162, 261, 20);
+		textFieldTelefonoUsuario.setBounds(30, 162, 261, 20);
 		add(textFieldTelefonoUsuario);
 		
 		JSeparator separator_4 = new JSeparator();
@@ -209,7 +190,7 @@ public class VentanaGestionUsuarios extends JPanel {
 		
 		JLabel lblNewLabel_1_5 = new JLabel("Password");
 		lblNewLabel_1_5.setFont(new Font("Roboto", Font.BOLD, 14));
-		lblNewLabel_1_5.setBounds(592, 143, 261, 17);
+		lblNewLabel_1_5.setBounds(311, 143, 261, 17);
 		add(lblNewLabel_1_5);
 		
 		textFieldPasswordUsuario = new JTextField();
@@ -235,13 +216,8 @@ public class VentanaGestionUsuarios extends JPanel {
 		textFieldPasswordUsuario.setBackground(new Color(255, 255, 255));
 		textFieldPasswordUsuario.setBorder(null);
 		textFieldPasswordUsuario.setColumns(10);
-		textFieldPasswordUsuario.setBounds(592, 162, 261, 20);
+		textFieldPasswordUsuario.setBounds(311, 162, 261, 20);
 		add(textFieldPasswordUsuario);
-		
-		JSeparator separator_5 = new JSeparator();
-		separator_5.setForeground(new Color(0, 153, 255));
-		separator_5.setBounds(592, 185, 261, 2);
-		add(separator_5);
 		
 		btnRegistrar = new JButton("REGISTRAR");
 		btnRegistrar.setFont(new Font("Roboto", Font.BOLD, 12));
@@ -256,15 +232,19 @@ public class VentanaGestionUsuarios extends JPanel {
 		btnModificarUsuario.setFont(new Font("Roboto", Font.BOLD, 12));
 		btnModificarUsuario.setBorder(null);
 		btnModificarUsuario.setBackground(new Color(0, 51, 153));
-		btnModificarUsuario.setBounds(152, 209, 113, 25);
+		btnModificarUsuario.setBounds(172, 209, 113, 25);
 		add(btnModificarUsuario);
 		
 		btnEliminarUsuario = new JButton("ELIMINAR");
+		btnEliminarUsuario.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnEliminarUsuario.setForeground(Color.WHITE);
 		btnEliminarUsuario.setFont(new Font("Roboto", Font.BOLD, 12));
 		btnEliminarUsuario.setBorder(null);
 		btnEliminarUsuario.setBackground(new Color(0, 51, 153));
-		btnEliminarUsuario.setBounds(275, 209, 113, 25);
+		btnEliminarUsuario.setBounds(315, 209, 113, 25);
 		add(btnEliminarUsuario);
 		
 		JSeparator separator_6 = new JSeparator();
@@ -335,12 +315,12 @@ public class VentanaGestionUsuarios extends JPanel {
 		scrollPane.setBackground(Color.WHITE);
 		
 		table = new JTable();
-		table.setFont(new Font("Roboto", Font.PLAIN, 14));
+		table.setFont(new Font("Roboto", Font.PLAIN, 13));
 		table.setBackground(Color.WHITE);
 		
 		model = new DefaultTableModel();
 		
-		Object[] column = {"ID","Nombre","Telefono","Cargo","Password","FechaNacimiento"};
+		Object[] column = {"ID","Nombre","Telefono","Password"};
 		Object[] row = new Object[0];
 		model.setColumnIdentifiers(column);
 		table.setModel(model);
@@ -367,7 +347,7 @@ public class VentanaGestionUsuarios extends JPanel {
 		btnLimpiar.setFont(new Font("Roboto", Font.BOLD, 12));
 		btnLimpiar.setBorder(null);
 		btnLimpiar.setBackground(new Color(0, 51, 153));
-		btnLimpiar.setBounds(398, 209, 113, 25);
+		btnLimpiar.setBounds(459, 209, 113, 25);
 		add(btnLimpiar);
 		
 		btnTraerInfoDB = new JButton("LISTA DE USUARIOS");
@@ -381,48 +361,6 @@ public class VentanaGestionUsuarios extends JPanel {
 		btnTraerInfoDB.setBackground(new Color(0, 51, 153));
 		btnTraerInfoDB.setBounds(152, 442, 138, 25);
 		add(btnTraerInfoDB);
-		
-		comboBoxCargo = new JComboBox();
-		comboBoxCargo.setBackground(Color.WHITE);
-		comboBoxCargo.setFont(new Font("Roboto", Font.PLAIN, 14));
-		comboBoxCargo.setModel(new DefaultComboBoxModel(new String[] {"", "administrador", "vendedor"}));
-		comboBoxCargo.setBorder(null);
-		comboBoxCargo.setBounds(30, 162, 261, 20);
-		add(comboBoxCargo);
-		
-		comboBoxYear = new JComboBox();
-		comboBoxYear.setBackground(Color.WHITE);
-		comboBoxYear.setFont(new Font("Roboto", Font.PLAIN, 12));
-		comboBoxYear.setModel(new DefaultComboBoxModel(new String[] {"", "1920", "1921", "1922", "1923", "1924", "1925", "1926", "1927", "1928", "1929", "1930", "1931", "1932", "1933", "1934", "1935", "1936", "1937", "1938", "1939", "1940", "1941", "1942", "1943", "1944", "1945", "1946", "1947", "1948", "1949", "1950", "1951", "1952", "1953", "1954", "1955", "1956", "1957", "1958", "1959", "1960", "1961", "1962", "1963", "1964", "1965", "1966", "1967", "1968", "1969", "1970", "1971", "1972", "1973", "1974", "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022"}));
-		comboBoxYear.setBorder(null);
-		comboBoxYear.setBounds(592, 99, 56, 20);
-		add(comboBoxYear);
-		
-		JLabel lblNewLabel_2 = new JLabel("-");
-		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_2.setBounds(658, 99, 14, 20);
-		add(lblNewLabel_2);
-		
-		comboBoxMonth = new JComboBox();
-		comboBoxMonth.setBackground(Color.WHITE);
-		comboBoxMonth.setFont(new Font("Roboto", Font.PLAIN, 12));
-		comboBoxMonth.setModel(new DefaultComboBoxModel(new String[] {"", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"}));
-		comboBoxMonth.setBorder(null);
-		comboBoxMonth.setBounds(682, 98, 56, 20);
-		add(comboBoxMonth);
-		
-		JLabel lblNewLabel_2_1 = new JLabel("-");
-		lblNewLabel_2_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_2_1.setBounds(748, 99, 14, 20);
-		add(lblNewLabel_2_1);
-		
-		comboBoxDay = new JComboBox();
-		comboBoxDay.setBackground(Color.WHITE);
-		comboBoxDay.setFont(new Font("Roboto", Font.PLAIN, 12));
-		comboBoxDay.setModel(new DefaultComboBoxModel(new String[] {"", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
-		comboBoxDay.setBorder(null);
-		comboBoxDay.setBounds(772, 98, 56, 20);
-		add(comboBoxDay);
 
 	}
 	
@@ -445,13 +383,6 @@ public class VentanaGestionUsuarios extends JPanel {
 	public void limpiarCasillas() {
 		textFieldIdUsuario.setText(null);
 		textFieldNombreUsuario.setText(null);
-		
-		//arregla los jcombobox
-		comboBoxYear.setSelectedIndex(0);
-		comboBoxMonth.setSelectedIndex(0);
-		comboBoxDay.setSelectedIndex(0);
-		comboBoxCargo.setSelectedIndex(0);
-		
 		textFieldTelefonoUsuario.setText(null);
 		textFieldPasswordUsuario.setText(null);
 		textFieldBuscarUsuarioPorId.setText(null);
@@ -462,7 +393,7 @@ public class VentanaGestionUsuarios extends JPanel {
 	public boolean validarCamposVacios() {
 		boolean camposVacios=false;
 		
-		if(textFieldIdUsuario.getText().isEmpty() || textFieldNombreUsuario.getText().isEmpty() || validarComboBox(comboBoxYear) || validarComboBox(comboBoxMonth) || validarComboBox(comboBoxDay) || validarComboBox(comboBoxCargo) || textFieldTelefonoUsuario.getText().isEmpty() && textFieldPasswordUsuario.getText().isEmpty()) {
+		if(textFieldIdUsuario.getText().isEmpty() || textFieldNombreUsuario.getText().isEmpty() || textFieldTelefonoUsuario.getText().isEmpty() && textFieldPasswordUsuario.getText().isEmpty()) {
 			
 			camposVacios=true;
 		}else {
@@ -475,7 +406,7 @@ public class VentanaGestionUsuarios extends JPanel {
 	public boolean validarCamposLlenos() {
 		boolean camposLlenos=false;
 		
-		if(textFieldIdUsuario.getText().isEmpty()==false && textFieldNombreUsuario.getText().isEmpty()==false && validarComboBox(comboBoxYear)==false && validarComboBox(comboBoxMonth)==false && validarComboBox(comboBoxDay)==false && validarComboBox(comboBoxCargo)==false && validarComboBox(comboBoxCargo)==false && textFieldTelefonoUsuario.getText().isEmpty()==false && textFieldPasswordUsuario.getText().isEmpty()==false) {
+		if(textFieldIdUsuario.getText().isEmpty()==false && textFieldNombreUsuario.getText().isEmpty()==false && textFieldTelefonoUsuario.getText().isEmpty()==false && textFieldPasswordUsuario.getText().isEmpty()==false) {
 			camposLlenos = true;
 		}else {
 			camposLlenos = false;
@@ -494,4 +425,3 @@ public class VentanaGestionUsuarios extends JPanel {
         }
 	}
 }
-

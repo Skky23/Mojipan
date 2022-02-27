@@ -129,9 +129,7 @@ public class ControladorGestionUsuarios implements ActionListener{
 		empleado.setId(Integer.valueOf(ventanaGestionUsuarios.textFieldIdUsuario.getText()));
 		empleado.setNombre(ventanaGestionUsuarios.textFieldNombreUsuario.getText());
 		empleado.setTelefono(ventanaGestionUsuarios.textFieldTelefonoUsuario.getText());
-		empleado.setCargo(ventanaGestionUsuarios.comboBoxCargo.getSelectedItem().toString());
 		empleado.setPassword(ventanaGestionUsuarios.textFieldPasswordUsuario.getText());
-		empleado.setFechaNacimiento(Date.valueOf(fechaNacimiento()));
 		
 		
 	}
@@ -141,10 +139,7 @@ public class ControladorGestionUsuarios implements ActionListener{
 		arreglo[0]= empleado.getId();
 		arreglo[1]= empleado.getNombre();
 		arreglo[2]= empleado.getTelefono();
-		arreglo[3]= empleado.getCargo();
-		arreglo[4]= empleado.getPassword(); 
-		arreglo[5]= empleado.getFechaNacimiento();
-
+		arreglo[3]= empleado.getPassword(); 
 			
 	}
 	
@@ -170,60 +165,14 @@ public class ControladorGestionUsuarios implements ActionListener{
 		ventanaGestionUsuarios.textFieldIdUsuario.setText((ventanaGestionUsuarios.table.getValueAt(fila, 0).toString()));
 		ventanaGestionUsuarios.textFieldNombreUsuario.setText((String) ventanaGestionUsuarios.table.getValueAt(fila, 1));
 		ventanaGestionUsuarios.textFieldTelefonoUsuario.setText((String) ventanaGestionUsuarios.table.getValueAt(fila, 2));
-		ventanaGestionUsuarios.comboBoxCargo.setSelectedIndex(cargoIndexNumber((String) ventanaGestionUsuarios.table.getValueAt(fila, 3)));
-		ventanaGestionUsuarios.textFieldPasswordUsuario.setText((String) ventanaGestionUsuarios.table.getValueAt(fila, 4));
-		ponerFechaTablaEnCasillas(fila);
+		ventanaGestionUsuarios.textFieldPasswordUsuario.setText((String) ventanaGestionUsuarios.table.getValueAt(fila, 3));
 		
 	}
 	
 	
-	public void ponerFechaTablaEnCasillas(int fila) {
-		
-		Date date =  (Date) ventanaGestionUsuarios.table.getValueAt(fila, 5);
-		
-		LocalDate  localDate = date.toLocalDate();
-		
-		int day = localDate.getDayOfMonth();
-		int month = localDate.getMonthValue();
-		int year = localDate.getYear();
-		
-		System.out.println(year);
-		System.out.println(month);
-		System.out.println(day);
-		
-		ventanaGestionUsuarios.comboBoxYear.setSelectedIndex(year-1920);
-		ventanaGestionUsuarios.comboBoxMonth.setSelectedIndex(month);
-		ventanaGestionUsuarios.comboBoxDay.setSelectedIndex(day);
-		
-	}
+
 	
-	public int cargoIndexNumber(String cargo) {
-		
-		int index = 0;
-		
-		if(cargo.equals("")) {
-			index=0;
-		}else {
-			if(cargo.equals("administrador") || cargo.equals("Administrador") ) {
-				index=1;
-			}else {
-				if(cargo.equals("vendedor") || cargo.equals("Vendedor")) {
-					index=2;
-				}
-			}
-		}
-			
-		return index;
-	}
+
 	
-	public String fechaNacimiento() {
-		
-		String fecha ="";
-		
-		fecha = ventanaGestionUsuarios.comboBoxYear.getSelectedItem().toString() + "-" + ventanaGestionUsuarios.comboBoxMonth.getSelectedItem().toString() + "-" + ventanaGestionUsuarios.comboBoxDay.getSelectedItem().toString();
-		
-		
-		return fecha;
-		
-	}
+
 }
