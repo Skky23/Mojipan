@@ -32,7 +32,7 @@ public class VentanaPrincipal extends JFrame {
 	public JButton btnPerfil;
 	public JButton btnGestionUsuarios;
 	public JButton btnGestionClientes;
-	public JButton btnGestionProveedores;
+	public JButton btnInsumos;
 	public JButton btnInventario;
 	public JButton btnVentas;
 	public JButton btnReportes;
@@ -81,7 +81,7 @@ public class VentanaPrincipal extends JFrame {
 		panelLateral.add(iconTituloPanelLateral);
 		iconTituloPanelLateral.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/imagenes/iconZapato.png")));
 		
-		JLabel lblTituloPanelLateral = new JLabel("Calzado Eze");
+		JLabel lblTituloPanelLateral = new JLabel("Mojipan");
 		lblTituloPanelLateral.setBounds(116, 23, 124, 45);
 		panelLateral.add(lblTituloPanelLateral);
 		lblTituloPanelLateral.setForeground(new Color(255, 255, 255));
@@ -159,26 +159,26 @@ public class VentanaPrincipal extends JFrame {
 		btnGestionClientes.setBorder(null);
 		btnGestionClientes.setBackground(new Color(0, 51, 102));
 		
-		btnGestionProveedores = new JButton("   Gestion de Proveedores");
-		btnGestionProveedores.addMouseListener(new MouseAdapter() {
+		btnInsumos = new JButton("   Insumos");
+		btnInsumos.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				btnGestionProveedores.setBackground(new Color(51, 51, 225));
+				btnInsumos.setBackground(new Color(51, 51, 225));
 			}
 			@Override
 			public void mouseExited(MouseEvent e) {
-				btnGestionProveedores.setBackground(new Color(0, 51, 102));
+				btnInsumos.setBackground(new Color(0, 51, 102));
 			}
 		});
-		btnGestionProveedores.setFocusPainted(false);
-		btnGestionProveedores.setHorizontalAlignment(SwingConstants.LEFT);
-		btnGestionProveedores.setBounds(25, 237, 275, 45);
-		panelLateral.add(btnGestionProveedores);
-		btnGestionProveedores.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/imagenes/iconBotonGestionUsuarios.png")));
-		btnGestionProveedores.setForeground(Color.WHITE);
-		btnGestionProveedores.setFont(new Font("Roboto", Font.BOLD, 16));
-		btnGestionProveedores.setBorder(null);
-		btnGestionProveedores.setBackground(new Color(0, 51, 102));
+		btnInsumos.setFocusPainted(false);
+		btnInsumos.setHorizontalAlignment(SwingConstants.LEFT);
+		btnInsumos.setBounds(25, 237, 275, 45);
+		panelLateral.add(btnInsumos);
+		btnInsumos.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/imagenes/iconBotonGestionUsuarios.png")));
+		btnInsumos.setForeground(Color.WHITE);
+		btnInsumos.setFont(new Font("Roboto", Font.BOLD, 16));
+		btnInsumos.setBorder(null);
+		btnInsumos.setBackground(new Color(0, 51, 102));
 		
 		btnInventario = new JButton("   Inventario");
 		btnInventario.addMouseListener(new MouseAdapter() {

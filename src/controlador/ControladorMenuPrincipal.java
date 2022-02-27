@@ -7,6 +7,8 @@ import java.awt.event.ActionListener;
 import javax.swing.JPanel;
 import modelo.Usuario;
 import ventanas.VentanaGestionClientes;
+import ventanas.VentanaGestionInsumos;
+import ventanas.VentanaGestionInventario;
 //import ventanas.VentanaGestionInventario;
 //import ventanas.VentanaGestionProveedores;
 import ventanas.VentanaGestionUsuarios;
@@ -19,17 +21,13 @@ public class ControladorMenuPrincipal implements ActionListener{
 	VentanaPerfil ventanaPerfil;
 	VentanaGestionUsuarios ventanaGestionUsuarios;
 	VentanaGestionClientes ventanaGestionClientes;
-	/*
-	VentanaGestionProveedores ventanaGestionProveedores;
 	VentanaGestionInventario ventanaGestionInventario;
-	*/
+	VentanaGestionInsumos ventanaGestionInsumos;
 	ControladorPerfil controladorPerfil;
 	ControladorGestionUsuarios controladorGestionUsuarios;
 	ControladorGestionClientes controladorGestionClientes;
-	/*
-	ControladorGestionProveedores controladorGestionProveedores;
 	ControladorGestionInventario controladorGestionInventario;
-	*/
+	ControladorGestionInsumos controladorGestionInsumos;
 	Usuario empleado;
 	
 	
@@ -39,7 +37,7 @@ public ControladorMenuPrincipal(VentanaPrincipal ventanaPrincipal, Usuario emple
 	this.ventanaPrincipal.btnPerfil.addActionListener(this);
 	this.ventanaPrincipal.btnGestionUsuarios.addActionListener(this);
 	this.ventanaPrincipal.btnGestionClientes.addActionListener(this);
-	this.ventanaPrincipal.btnGestionProveedores.addActionListener(this);
+	this.ventanaPrincipal.btnInsumos.addActionListener(this);
 	this.ventanaPrincipal.btnInventario.addActionListener(this);
 	this.ventanaPrincipal.btnVentas.addActionListener(this);
 	this.ventanaPrincipal.btnReportes.addActionListener(this);
@@ -71,15 +69,20 @@ public ControladorMenuPrincipal(VentanaPrincipal ventanaPrincipal, Usuario emple
 			controladorGestionClientes = new ControladorGestionClientes(ventanaGestionClientes);
 			mostrarPanel(ventanaGestionClientes);
 		}
+		
+		if(e.getSource() == ventanaPrincipal.btnInsumos) {
+			ventanaGestionInsumos = new VentanaGestionInsumos();
+			controladorGestionInsumos = new ControladorGestionInsumos(ventanaGestionInsumos);
+			mostrarPanel(ventanaGestionInsumos);
+		}
 	
 	
 		if(e.getSource() == ventanaPrincipal.btnInventario) {
-			/*
+			
 			ventanaGestionInventario = new VentanaGestionInventario();
 			controladorGestionInventario  = new ControladorGestionInventario(ventanaGestionInventario);
-			//controlador gestion inventario
 			mostrarPanel(ventanaGestionInventario);
-			*/
+			
 		}
 	
 		if(e.getSource() == ventanaPrincipal.btnVentas) {

@@ -61,6 +61,10 @@ public class ControladorGestionClientes implements ActionListener {
 				int id = Integer.valueOf(ventanaGestionClientes.textFieldIdCliente.getText());
 				consultaCliente.eliminar(id);
 				ventanaGestionClientes.limpiarCasillas();
+				
+				ventanaGestionClientes.borrarElementosTabla();
+				consultaCliente.poblarTabla(ventanaGestionClientes.table);
+				
 			}else {
 				JOptionPane.showMessageDialog(null, "Ingrese el ID del cliente que desea eliminar");
 			}
@@ -72,6 +76,10 @@ public class ControladorGestionClientes implements ActionListener {
 				ponerValoresEnModeloUsuario();
 				consultaCliente.modificar(cliente);
 				ventanaGestionClientes.limpiarCasillas();
+				
+				ventanaGestionClientes.borrarElementosTabla();
+				consultaCliente.poblarTabla(ventanaGestionClientes.table);
+				
 			}else {
 				JOptionPane.showMessageDialog(null, "Complete todos los campos con el formato correcto");
 			}

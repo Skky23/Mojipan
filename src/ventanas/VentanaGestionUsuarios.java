@@ -48,7 +48,7 @@ public class VentanaGestionUsuarios extends JPanel {
 		setBackground(new Color(255, 255, 255));
 		setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Gestion de Usarios");
+		JLabel lblNewLabel = new JLabel("Gestion de Usuarios");
 		lblNewLabel.setFont(new Font("Roboto", Font.BOLD, 20));
 		lblNewLabel.setBounds(30, 30, 260, 26);
 		add(lblNewLabel);
@@ -147,12 +147,12 @@ public class VentanaGestionUsuarios extends JPanel {
 		
 		JSeparator separator_3 = new JSeparator();
 		separator_3.setForeground(new Color(0, 153, 255));
-		separator_3.setBounds(30, 185, 261, 2);
+		separator_3.setBounds(594, 123, 261, 2);
 		add(separator_3);
 		
 		JLabel lblNewLabel_1_4 = new JLabel("Telefono");
 		lblNewLabel_1_4.setFont(new Font("Roboto", Font.BOLD, 14));
-		lblNewLabel_1_4.setBounds(30, 143, 261, 17);
+		lblNewLabel_1_4.setBounds(594, 80, 261, 17);
 		add(lblNewLabel_1_4);
 		
 		textFieldTelefonoUsuario = new JTextField();
@@ -180,17 +180,17 @@ public class VentanaGestionUsuarios extends JPanel {
 		textFieldTelefonoUsuario.setBackground(new Color(255, 255, 255));
 		textFieldTelefonoUsuario.setBorder(null);
 		textFieldTelefonoUsuario.setColumns(10);
-		textFieldTelefonoUsuario.setBounds(30, 162, 261, 20);
+		textFieldTelefonoUsuario.setBounds(594, 99, 261, 20);
 		add(textFieldTelefonoUsuario);
 		
 		JSeparator separator_4 = new JSeparator();
 		separator_4.setForeground(new Color(0, 153, 255));
-		separator_4.setBounds(311, 185, 261, 2);
+		separator_4.setBounds(30, 185, 261, 2);
 		add(separator_4);
 		
 		JLabel lblNewLabel_1_5 = new JLabel("Password");
 		lblNewLabel_1_5.setFont(new Font("Roboto", Font.BOLD, 14));
-		lblNewLabel_1_5.setBounds(311, 143, 261, 17);
+		lblNewLabel_1_5.setBounds(30, 143, 261, 17);
 		add(lblNewLabel_1_5);
 		
 		textFieldPasswordUsuario = new JTextField();
@@ -216,7 +216,7 @@ public class VentanaGestionUsuarios extends JPanel {
 		textFieldPasswordUsuario.setBackground(new Color(255, 255, 255));
 		textFieldPasswordUsuario.setBorder(null);
 		textFieldPasswordUsuario.setColumns(10);
-		textFieldPasswordUsuario.setBounds(311, 162, 261, 20);
+		textFieldPasswordUsuario.setBounds(30, 162, 261, 20);
 		add(textFieldPasswordUsuario);
 		
 		btnRegistrar = new JButton("REGISTRAR");
