@@ -129,7 +129,7 @@ public class VentanaPrincipal extends JFrame {
 		btnGestionUsuarios.setHorizontalAlignment(SwingConstants.LEFT);
 		btnGestionUsuarios.setBounds(25, 147, 275, 45);
 		panelLateral.add(btnGestionUsuarios);
-		btnGestionUsuarios.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/imagenes/iconBotonGestionUsuarios.png")));
+		btnGestionUsuarios.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/imagenes/gestionUsuarios.png")));
 		btnGestionUsuarios.setForeground(Color.WHITE);
 		btnGestionUsuarios.setFont(new Font("Roboto", Font.BOLD, 16));
 		btnGestionUsuarios.setBorder(null);
@@ -154,13 +154,17 @@ public class VentanaPrincipal extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnGestionClientes.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/imagenes/iconBotonGestionUsuarios.png")));
+		btnGestionClientes.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/imagenes/gestionClientes.png")));
 		btnGestionClientes.setForeground(Color.WHITE);
 		btnGestionClientes.setFont(new Font("Roboto", Font.BOLD, 16));
 		btnGestionClientes.setBorder(null);
 		btnGestionClientes.setBackground(new Color(159, 11, 47));
 		
 		btnInsumos = new JButton("   Insumos");
+		btnInsumos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnInsumos.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -175,7 +179,7 @@ public class VentanaPrincipal extends JFrame {
 		btnInsumos.setHorizontalAlignment(SwingConstants.LEFT);
 		btnInsumos.setBounds(25, 237, 275, 45);
 		panelLateral.add(btnInsumos);
-		btnInsumos.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/imagenes/iconBotonGestionUsuarios.png")));
+		btnInsumos.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/imagenes/trigo.png")));
 		btnInsumos.setForeground(Color.WHITE);
 		btnInsumos.setFont(new Font("Roboto", Font.BOLD, 16));
 		btnInsumos.setBorder(null);
@@ -196,7 +200,7 @@ public class VentanaPrincipal extends JFrame {
 		btnInventario.setHorizontalAlignment(SwingConstants.LEFT);
 		btnInventario.setBounds(25, 282, 275, 45);
 		panelLateral.add(btnInventario);
-		btnInventario.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/imagenes/iconInventario.png")));
+		btnInventario.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/imagenes/gestionProductos.png")));
 		btnInventario.setForeground(Color.WHITE);
 		btnInventario.setFont(new Font("Roboto", Font.BOLD, 16));
 		btnInventario.setBorder(null);
@@ -266,8 +270,8 @@ public class VentanaPrincipal extends JFrame {
 		btnSalir.setBackground(new Color(159, 11, 47));
 		
 		JPanel panelSuperior = new JPanel();
-		panelSuperior.setBackground(new Color(210, 45, 87));
-		panelSuperior.setBounds(300, 46, 884, 131);
+		panelSuperior.setBackground(new Color(210, 45, 86));
+		panelSuperior.setBounds(300, 46, 886, 131);
 		contentPane.add(panelSuperior);
 		panelSuperior.setLayout(null);
 		
@@ -282,7 +286,7 @@ public class VentanaPrincipal extends JFrame {
 		textFieldFechaSistema.setEditable(false);
 		textFieldFechaSistema.setFont(new Font("Roboto", Font.PLAIN, 20));
 		textFieldFechaSistema.setBorder(null);
-		textFieldFechaSistema.setBackground(new Color(210, 45, 87));
+		textFieldFechaSistema.setBackground(new Color(210, 45, 86));
 		textFieldFechaSistema.setBounds(60, 71, 310, 35);
 		panelSuperior.add(textFieldFechaSistema);
 		textFieldFechaSistema.setColumns(10);
@@ -292,7 +296,7 @@ public class VentanaPrincipal extends JFrame {
 		textFieldUsuarioConectado.setForeground(Color.WHITE);
 		textFieldUsuarioConectado.setEditable(false);
 		textFieldUsuarioConectado.setBorder(null);
-		textFieldUsuarioConectado.setBackground(new Color(210, 45, 87));
+		textFieldUsuarioConectado.setBackground(new Color(210, 45, 86));
 		textFieldUsuarioConectado.setFont(new Font("Roboto", Font.PLAIN, 16));
 		textFieldUsuarioConectado.setColumns(10);
 		textFieldUsuarioConectado.setBounds(132, 41, 238, 20);
@@ -304,10 +308,12 @@ public class VentanaPrincipal extends JFrame {
 		contentPane.add(panelPrincipalVentanas);
 		panelPrincipalVentanas.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Panadería Mojipan");
+		JLabel lblNewLabel = new JLabel("PANADERÍA MOJIPAN");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Roboto", Font.BOLD, 20));
-		lblNewLabel.setBounds(300, 11, 884, 24);
+		lblNewLabel.setBackground(new Color(246, 38, 77));
+		lblNewLabel.setOpaque(true);
+		lblNewLabel.setBounds(300, 0, 886, 45);
 		contentPane.add(lblNewLabel);
 	}
 }

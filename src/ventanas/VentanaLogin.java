@@ -72,9 +72,6 @@ public class VentanaLogin extends JFrame {
 		lblNewLabel.setBorder(null);
 
 		lblNewLabel.setIcon(new ImageIcon(VentanaLogin.class.getResource("/imagenes/logo.jpeg")));
-		lblNewLabel.setBounds(470, 0, 316, 461);
-
-		lblNewLabel.setIcon(new ImageIcon(VentanaLogin.class.getResource("/imagenes/imagenLoginMojipan.jpg")));
 		lblNewLabel.setBounds(483, 0, 301, 461);
 		contentPane.add(lblNewLabel);
 		

@@ -16,13 +16,14 @@ public class ConsultaInsumos extends Conexion {
 	
 	
 	  public void buscar (String parametroBusqueda, JTextField casilla, JTable table){
-		  	
+		  
+		  String termino = casilla.getText().toLowerCase();
 		  
 	        PreparedStatement ps = null;
 	        ResultSet rs = null;
 	        Connection con = getConnection();
 	      
-	        String sql = "SELECT * FROM insumos WHERE "+ parametroBusqueda + "='"+casilla.getText()+"' ";
+	        String sql = "SELECT * FROM insumos WHERE " + parametroBusqueda + "=" + "'"+termino+"'";
 	        
 	        try{
 	           
@@ -59,23 +60,45 @@ public class ConsultaInsumos extends Conexion {
 	        }
 	    }
 	  
+	    public boolean confirmarExistenciaInsumo(String nombre){
+	        
+	    	String nombreInsumo = nombre;
+	        Connection con = getConnection();
+	        String sql = "SELECT * FROM insumos WHERE nombre_insumo='"+nombreInsumo+"'";
+	        
+	        try{
+	        	Statement st = con.createStatement();
+				ResultSet rs = st.executeQuery(sql);
+	           
+	           if(rs.next()){
+	               return true;
+	           }else {  
+	               return false;
+	           } 
+	        }catch(SQLException e) {
+	            System.err.println(e);
+	            return false;
+	        } finally{
+	            try{
+	                con.close();
+	            }catch (SQLException e){
+	                System.err.println(e);
+	            }
+	        }
+	    }
+	  
 	  
 		public boolean registrar(VentanaGestionInsumos ventanaGestionInsumos){
 			
-			String nombre = (ventanaGestionInsumos.textFieldNombreProducto.getText()).toString();
+			String nombre = ((ventanaGestionInsumos.textFieldNombreProducto.getText()).toString()).toLowerCase();
 			int cantidad = Integer.parseInt(ventanaGestionInsumos.textFieldCantidad.getText());
 			int costoUnidad = Integer.parseInt(ventanaGestionInsumos.textFieldCostoUnidad.getText());
 
-			
-				
-				
-				
 				Connection con = getConnection();
 		        String sql = "INSERT INTO insumos (nombre_insumo, cantidad, costo_por_unidad)"
 		        		+ "values ('"+nombre+"', '"+cantidad+"','"+costoUnidad+"')";
 		        
 		        try{
-		           
 		        	 Statement st = con.createStatement();
 		             int ejecucion = st.executeUpdate(sql);
 		             
@@ -86,7 +109,6 @@ public class ConsultaInsumos extends Conexion {
 		         	   JOptionPane.showMessageDialog(null, "Registro fallido");
 		         	   return false;
 		            }
-		           
 		           
 		        }catch(SQLException e) {
 		            System.err.println(e);

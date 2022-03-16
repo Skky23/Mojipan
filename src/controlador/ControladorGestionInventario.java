@@ -67,7 +67,7 @@ public class ControladorGestionInventario implements ActionListener {
 		}
 		
 		if(e.getSource() == ventanaGestionInventario.btnEliminarItem) {
-			if(ventanaGestionInventario.textFieldIdItem.getText().isEmpty()==false) {
+			if(ventanaGestionInventario.textFieldIdItem.getText().isEmpty()==false) {			
 				int id = Integer.valueOf(ventanaGestionInventario.textFieldIdItem.getText());
 				consultaInventario.eliminar(id);
 				ventanaGestionInventario.limpiarCasillas();
@@ -76,7 +76,7 @@ public class ControladorGestionInventario implements ActionListener {
 				consultaInventario.poblarTabla(ventanaGestionInventario.table);
 				
 			}else {
-				JOptionPane.showMessageDialog(null, "Ingrese el ID del empleado que desea eliminar");
+				JOptionPane.showMessageDialog(null, "Ingrese el ID del producto que desea eliminar");
 			}
 		}
 		

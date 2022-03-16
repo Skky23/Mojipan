@@ -20,13 +20,14 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class VentanaGestionInsumos extends JPanel {
 	public JTextField textFieldBuscarItem;
 	public JTable table;
 	DefaultTableModel model;
 	public JButton btnBuscarItem;
-	public JButton btnSeleccionar;
 	public 	JButton btnListaInventario;
 	public JButton btnRegistrarItem;
 	public JButton btnModificarItem;
@@ -107,6 +108,11 @@ public class VentanaGestionInsumos extends JPanel {
 		add(scrollPane_1);
 		
 		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			}
+		});
 		scrollPane_1.setViewportView(scrollPane);
 		
 		table = new JTable();
@@ -122,20 +128,12 @@ public class VentanaGestionInsumos extends JPanel {
 		scrollPane.setViewportView(table);
 		table.setBorder(new LineBorder(new Color(0, 0, 0)));
 		
-		btnSeleccionar = new JButton("SELECCIONAR");
-		btnSeleccionar.setForeground(Color.WHITE);
-		btnSeleccionar.setFont(new Font("Roboto", Font.BOLD, 12));
-		btnSeleccionar.setBorder(null);
-		btnSeleccionar.setBackground(new Color(159,11,47));
-		btnSeleccionar.setBounds(30, 442, 113, 25);
-		add(btnSeleccionar);
-		
 		btnListaInventario = new JButton("LISTA INVENTARIO");
 		btnListaInventario.setForeground(Color.WHITE);
 		btnListaInventario.setFont(new Font("Roboto", Font.BOLD, 12));
 		btnListaInventario.setBorder(null);
 		btnListaInventario.setBackground(new Color(159,11,47));
-		btnListaInventario.setBounds(153, 442, 143, 25);
+		btnListaInventario.setBounds(30, 441, 143, 25);
 		add(btnListaInventario);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("Cantidad");
@@ -315,14 +313,9 @@ public class VentanaGestionInsumos extends JPanel {
 		textFieldCostoUnidad.setText(null);
 		textFieldNombreProducto.setText(null);
 		textFieldIdItem.setText(null);
-
-		
-		
 	}
 	
-	
-	public void borrarElementosTabla() {
-		 
+	public void borrarElementosTabla() {	 
         int numeroFilasBorrar = model.getRowCount();
         //remove rows from the bottom one by one
         for (int i = numeroFilasBorrar - 1; i >= 0; i--) {
@@ -344,9 +337,18 @@ public class VentanaGestionInsumos extends JPanel {
         	paramentroSQL = "nombre_insumo";
             break;
 	    }
-		
 		return paramentroSQL;
+	}	
+	
+	public boolean validarCamposVacios() {
+		boolean camposVacios=false;
+		
+		if(textFieldNombreProducto.getText().isEmpty() || textFieldCantidad.getText().isEmpty() || textFieldCostoUnidad.getText().isEmpty()){
+			
+			camposVacios=true;
+		}else {
+			camposVacios=false;
+		}
+		return camposVacios;
 	}
-	
-	
 }
