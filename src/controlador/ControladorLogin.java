@@ -2,6 +2,8 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -17,7 +19,7 @@ import ventanas.VentanaPrincipal;
 
 
 
-public class ControladorLogin implements ActionListener {
+public class ControladorLogin implements ActionListener, KeyListener {
 	
 	VentanaLogin ventanaLogin;
 	VentanaPrincipal ventanaPrincipal;
@@ -73,22 +75,12 @@ public class ControladorLogin implements ActionListener {
 					
 					//guardo la informacion del usuario que se encuentra en la base de datos en el objeto persona
 					consultaUsuario.buscar(persona, userId);
-					
-										
-					
-						
-						JOptionPane.showMessageDialog(null, "Login exitoso");
 						iniciarVentanaPrincipal();
-						
-						
 						try{
 			                con.close();
 			            }catch (SQLException e){
 			                System.err.println(e);
-			            }
-						
-						
-						
+			            }	
 				} else {
 					
 					JOptionPane.showMessageDialog(null, "Error de Acceso");
@@ -181,5 +173,26 @@ public class ControladorLogin implements ActionListener {
         }
 	
 		return mesString;
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		// TODO Auto-generated method stub
+		if(e.getKeyCode()==KeyEvent.VK_ENTER) {
+			validarUsuario();
+		}
+			
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }

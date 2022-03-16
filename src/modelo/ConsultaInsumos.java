@@ -9,45 +9,34 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
-
 import ventanas.VentanaGestionInsumos;
 
 public class ConsultaInsumos extends Conexion {
 	
-	
 	  public void buscar (String parametroBusqueda, JTextField casilla, JTable table){
-		  
+		  	  
 		  String termino = casilla.getText().toLowerCase();
-		  
-	        PreparedStatement ps = null;
-	        ResultSet rs = null;
-	        Connection con = getConnection();
+		  PreparedStatement ps = null;
+		  ResultSet rs = null;
+	      Connection con = getConnection();
+	      String sql = "SELECT * FROM insumos WHERE " + parametroBusqueda + "=" + "'"+termino+"'";
 	      
-	        String sql = "SELECT * FROM insumos WHERE " + parametroBusqueda + "=" + "'"+termino+"'";
-	        
+	             
 	        try{
-	           
 	           ps = con.prepareStatement(sql);
 	           rs = ps.executeQuery();
-	           
-
 		           while(rs.next()){
 		        	   
 			        	int id = rs.getInt("id_insumo");
 			        	String nombre = rs.getString("nombre_insumo");
 			        	int cantidad = rs.getInt("cantidad");
 			        	int costoUnidad = rs.getInt("costo_por_unidad");
-
+			        	int costoTotal = rs.getInt("costo_total");        	
 			        	
-			        	
-			        	Object tbData[] = {id, nombre, cantidad, costoUnidad, };
-			        	
+			        	Object tbData[] = {id, nombre, cantidad, costoUnidad, costoTotal};
 			        	DefaultTableModel tblModel = (DefaultTableModel)table.getModel();
-			        	
 			        	tblModel.addRow(tbData);;
 		           }
-		     
-	           
 	        }catch(SQLException e) {
 	            System.err.println(e);
 	            
@@ -93,10 +82,11 @@ public class ConsultaInsumos extends Conexion {
 			String nombre = ((ventanaGestionInsumos.textFieldNombreProducto.getText()).toString()).toLowerCase();
 			int cantidad = Integer.parseInt(ventanaGestionInsumos.textFieldCantidad.getText());
 			int costoUnidad = Integer.parseInt(ventanaGestionInsumos.textFieldCostoUnidad.getText());
+			int costoTotal = cantidad*costoUnidad;
 
 				Connection con = getConnection();
-		        String sql = "INSERT INTO insumos (nombre_insumo, cantidad, costo_por_unidad)"
-		        		+ "values ('"+nombre+"', '"+cantidad+"','"+costoUnidad+"')";
+		        String sql = "INSERT INTO insumos (nombre_insumo, cantidad, costo_por_unidad, costo_total)"
+		        		+ "values ('"+nombre+"', '"+cantidad+"','"+costoUnidad+"','"+costoTotal+"')";
 		        
 		        try{
 		        	 Statement st = con.createStatement();
@@ -157,21 +147,16 @@ public class ConsultaInsumos extends Conexion {
 	    public boolean modificar(VentanaGestionInsumos ventanaGestionInsumos){
 	    	
 	    	int fila = ventanaGestionInsumos.table.getSelectedRow();
-	    	
 	    	int id = Integer.parseInt(ventanaGestionInsumos.textFieldIdItem.getText());
 	    	String nombre = ventanaGestionInsumos.textFieldNombreProducto.getText();
 	    	int cantidad = Integer.parseInt(ventanaGestionInsumos.textFieldCantidad.getText());
 			int costoUnidad = Integer.parseInt(ventanaGestionInsumos.textFieldCostoUnidad.getText());
+			int costoTotal = cantidad*costoUnidad;
 		
-			
-			
-			Connection con = getConnection();
-				
-			String sql = "UPDATE insumos SET nombre_insumo='"+nombre+"', cantidad='"+cantidad+"', costo_por_unidad='"+costoUnidad+"' WHERE id_insumo='"+id+"'";
+			Connection con = getConnection();		
+			String sql = "UPDATE insumos SET nombre_insumo='"+nombre+"', cantidad='"+cantidad+"', costo_por_unidad='"+costoUnidad+"', costo_total='"+costoTotal+"' WHERE id_insumo='"+id+"'";
 			        	
-				
 		        try{
-		        	
 		        	Statement st = con.createStatement();
 		            int ejecucion = st.executeUpdate(sql);
 		            
@@ -181,9 +166,7 @@ public class ConsultaInsumos extends Conexion {
 		            }else {
 		         	   JOptionPane.showMessageDialog(null, "Cambio fallido");
 		         	   return false;
-		            }
-		           
-		           
+		            }           
 		        }catch(SQLException e) {
 		            System.err.println(e);
 		            return false;
@@ -193,54 +176,34 @@ public class ConsultaInsumos extends Conexion {
 		            }catch (SQLException e){
 		                System.err.println(e);
 		            }
-		        }
-	        
-	    	
+		        }	
 	    }
 	    
-	    
 	    public void poblarTabla(JTable table) {
-	    	
-	    	
 	        Connection con = getConnection();
-	        String sql = "SELECT * FROM insumos ORDER BY id_insumo";
-	        
+	        String sql = "SELECT * FROM insumos ORDER BY id_insumo";   
 	        try{
 	        	Statement st = con.createStatement();
 				ResultSet rs = st.executeQuery(sql);
-				
-	           
-	           while(rs.next()){
-	        	   
-	        	
-	        	
-	        	int id = rs.getInt("id_insumo");
-	        	String nombre = rs.getString("nombre_insumo");
-	        	int cantidad = rs.getInt("cantidad");
-	        	int costoUnidad = rs.getInt("costo_por_unidad");
-
-	        	
-	        	
-	        	Object tbData[] = {id, nombre, cantidad, costoUnidad};
-	        	
+				while(rs.next()){
+					int id = rs.getInt("id_insumo");
+					String nombre = rs.getString("nombre_insumo");
+					int cantidad = rs.getInt("cantidad");
+					int costoUnidad = rs.getInt("costo_por_unidad");
+					int costoTotal = cantidad*costoUnidad;
+					
+	        	Object tbData[] = {id, nombre, cantidad, costoUnidad, costoTotal};
 	        	DefaultTableModel tblModel = (DefaultTableModel)table.getModel();
-	        	
 	        	tblModel.addRow(tbData);
-	           }
-	        	
-	           
+	           }     
 	        }catch(SQLException e) {
 	            System.err.println(e);
-
 	        } finally{
 	            try{
 	                con.close();
 	            }catch (SQLException e){
 	                System.err.println(e);
 	            }
-	        }
-	    	
+	        }	
 	    }
-	    	
-
 }

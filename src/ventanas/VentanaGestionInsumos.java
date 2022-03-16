@@ -120,7 +120,7 @@ public class VentanaGestionInsumos extends JPanel {
 		table.setBackground(Color.WHITE);
 		
 		model = new DefaultTableModel();
-		Object[] column = {"ID", "Nombre", "Cantidad Disponible", "Costo Unidad"};
+		Object[] column = {"ID", "Nombre", "Cantidad Disponible", "Costo Unidad", "Costo Total"};
 		Object[] row = new Object[0];
 		model.setColumnIdentifiers(column);
 		table.setModel(model);

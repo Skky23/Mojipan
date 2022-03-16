@@ -188,6 +188,11 @@ public class VentanaLogin extends JFrame {
 		contentPane.add(lblNewLabel_4);
 		
 		btnEntrar = new JButton("ENTRAR");
+		btnEntrar.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+			}
+		});
 		btnEntrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -209,6 +214,7 @@ public class VentanaLogin extends JFrame {
 		btnEntrar.setFont(new Font("Roboto", Font.BOLD, 14));
 		btnEntrar.setBounds(50, 335, 126, 39);
 		contentPane.add(btnEntrar);
+		
 	}
 	
 	
