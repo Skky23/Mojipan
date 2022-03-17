@@ -38,6 +38,7 @@ public class VentanaGestionInsumos extends JPanel {
 	public JTextField textFieldNombreProducto;
 	public JTextField textFieldIdItem;
 	public JComboBox comboBoxArgumentoBusqueda;
+	private JTextField textField;
 	
 
 	/**
@@ -194,10 +195,10 @@ public class VentanaGestionInsumos extends JPanel {
 		textFieldCostoUnidad.setColumns(10);
 		textFieldCostoUnidad.setBorder(null);
 		textFieldCostoUnidad.setBackground(Color.WHITE);
-		textFieldCostoUnidad.setBounds(30, 160, 120, 20);
+		textFieldCostoUnidad.setBounds(30, 160, 247, 20);
 		add(textFieldCostoUnidad);
 		
-		JLabel lblNewLabel_1_1_1_1 = new JLabel("Costo Unidad");
+		JLabel lblNewLabel_1_1_1_1 = new JLabel("Costo por unidad de producto");
 		lblNewLabel_1_1_1_1.setFont(new Font("Roboto", Font.BOLD, 14));
 		lblNewLabel_1_1_1_1.setBounds(30, 141, 247, 17);
 		add(lblNewLabel_1_1_1_1);
@@ -247,7 +248,7 @@ public class VentanaGestionInsumos extends JPanel {
 		textFieldIdItem.setBounds(30, 99, 244, 20);
 		add(textFieldIdItem);
 		
-		btnRegistrarItem = new JButton("REGISTRAR");
+		btnRegistrarItem = new JButton("AGREGAR");
 		btnRegistrarItem.setForeground(Color.WHITE);
 		btnRegistrarItem.setFont(new Font("Roboto", Font.BOLD, 12));
 		btnRegistrarItem.setBorder(null);
@@ -304,6 +305,24 @@ public class VentanaGestionInsumos extends JPanel {
 		separator_7_1_1_1.setForeground(new Color(159,11,47));
 		separator_7_1_1_1.setBounds(30, 183, 247, 2);
 		add(separator_7_1_1_1);
+		
+		JLabel lblNewLabel_1_1_1_1_2 = new JLabel("Gramos por unidad de producto");
+		lblNewLabel_1_1_1_1_2.setFont(new Font("Dialog", Font.BOLD, 14));
+		lblNewLabel_1_1_1_1_2.setBounds(293, 141, 247, 17);
+		add(lblNewLabel_1_1_1_1_2);
+		
+		JSeparator separator_7_1_1_1_1 = new JSeparator();
+		separator_7_1_1_1_1.setForeground(new Color(159, 11, 47));
+		separator_7_1_1_1_1.setBounds(293, 183, 247, 2);
+		add(separator_7_1_1_1_1);
+		
+		textField = new JTextField();
+		textField.setFont(new Font("Dialog", Font.PLAIN, 14));
+		textField.setColumns(10);
+		textField.setBorder(null);
+		textField.setBackground(Color.WHITE);
+		textField.setBounds(293, 162, 247, 20);
+		add(textField);
 
 	}
 	

@@ -85,6 +85,7 @@ public class ConsultaInsumos extends Conexion {
 			int cantidad = Integer.parseInt(ventanaGestionInsumos.textFieldCantidad.getText());
 			int costoUnidad = Integer.parseInt(ventanaGestionInsumos.textFieldCostoUnidad.getText());
 			int costoTotal = cantidad*costoUnidad;
+			int costoGramo = costoTotal/cantidad;
 
 				Connection con = getConnection();
 		        String sql = "INSERT INTO insumos (nombre_insumo, cantidad, costo_por_unidad, costo_total)"
