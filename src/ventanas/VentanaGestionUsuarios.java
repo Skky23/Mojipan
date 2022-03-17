@@ -37,7 +37,6 @@ public class VentanaGestionUsuarios extends JPanel {
 	public JButton btnEliminarUsuario;
 	public JButton btnBuscarUsuario;
 	public JButton btnLimpiar;
-	public JButton btnSeleccionar;
 	public JButton btnTraerInfoDB;
 
 	/**
@@ -53,7 +52,7 @@ public class VentanaGestionUsuarios extends JPanel {
 		lblNewLabel.setBounds(30, 30, 260, 26);
 		add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("Id");
+		JLabel lblNewLabel_1 = new JLabel("ID");
 		lblNewLabel_1.setFont(new Font("Roboto", Font.BOLD, 14));
 		lblNewLabel_1.setBounds(30, 80, 261, 17);
 		add(lblNewLabel_1);
@@ -306,12 +305,10 @@ public class VentanaGestionUsuarios extends JPanel {
 		btnBuscarUsuario.setBounds(740, 260, 113, 25);
 		add(btnBuscarUsuario);
 		
-		JScrollPane scrollPane_1 = new JScrollPane();
-		scrollPane_1.setBounds(30, 301, 823, 130);
-		add(scrollPane_1);
-		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane_1.setViewportView(scrollPane);
+		scrollPane.setBounds(30, 301, 823, 130);
+		add(scrollPane);
+		
 		scrollPane.setBackground(Color.WHITE);
 		
 		table = new JTable();
@@ -327,16 +324,6 @@ public class VentanaGestionUsuarios extends JPanel {
 		
 		scrollPane.setViewportView(table);
 		table.setBorder(new LineBorder(new Color(0, 0, 0)));
-		
-		
-		
-		btnSeleccionar = new JButton("SELECCIONAR");
-		btnSeleccionar.setForeground(Color.WHITE);
-		btnSeleccionar.setFont(new Font("Roboto", Font.BOLD, 12));
-		btnSeleccionar.setBorder(null);
-		btnSeleccionar.setBackground(new Color(159,11,47));
-		btnSeleccionar.setBounds(30, 442, 113, 25);
-		add(btnSeleccionar);
 		
 		btnLimpiar = new JButton("LIMPIAR");
 		btnLimpiar.addActionListener(new ActionListener() {
@@ -359,7 +346,7 @@ public class VentanaGestionUsuarios extends JPanel {
 		btnTraerInfoDB.setFont(new Font("Roboto", Font.BOLD, 12));
 		btnTraerInfoDB.setBorder(null);
 		btnTraerInfoDB.setBackground(new Color(159,11,47));
-		btnTraerInfoDB.setBounds(152, 442, 138, 25);
+		btnTraerInfoDB.setBounds(30, 442, 138, 25);
 		add(btnTraerInfoDB);
 
 	}

@@ -2,6 +2,9 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -9,7 +12,7 @@ import modelo.Cliente;
 import modelo.ConsultaCliente;
 import ventanas.VentanaGestionClientes;
 
-public class ControladorGestionClientes implements ActionListener {
+public class ControladorGestionClientes implements ActionListener, MouseListener {
 	
 	VentanaGestionClientes ventanaGestionClientes;
 	Cliente cliente = new Cliente();
@@ -22,10 +25,11 @@ public class ControladorGestionClientes implements ActionListener {
 		this.ventanaGestionClientes.btnEliminarCliente.addActionListener(this);
 		this.ventanaGestionClientes.btnModificarCliente.addActionListener(this);
 		this.ventanaGestionClientes.btnRegistrarCliente.addActionListener(this);
-		this.ventanaGestionClientes.btnSeleccionar.addActionListener(this);
 		this.ventanaGestionClientes.btnLimpiar.addActionListener(this);
 		this.ventanaGestionClientes.btnListaDeClientes.addActionListener(this);
+		this.ventanaGestionClientes.table.addMouseListener(this);
 		consultaCliente.poblarTabla(ventanaGestionClientes.table);
+		
 		
 	}
 
@@ -58,12 +62,32 @@ public class ControladorGestionClientes implements ActionListener {
 		
 		if(e.getSource() == ventanaGestionClientes.btnEliminarCliente) {
 			if(ventanaGestionClientes.textFieldIdCliente.getText().isEmpty()==false) {
-				int id = Integer.valueOf(ventanaGestionClientes.textFieldIdCliente.getText());
-				consultaCliente.eliminar(id);
-				ventanaGestionClientes.limpiarCasillas();
 				
-				ventanaGestionClientes.borrarElementosTabla();
-				consultaCliente.poblarTabla(ventanaGestionClientes.table);
+				int cedulaCliente = Integer.parseInt(ventanaGestionClientes.textFieldIdCliente.getText());
+				
+				if(consultaCliente.confirmarExistenciaCliente(cedulaCliente) == true) {
+					
+					int reply = JOptionPane.showConfirmDialog(null, "Está seguro que desea eliminar el cliente del sistema \n", "Advertencia", JOptionPane.YES_NO_OPTION);
+					
+					if((reply == JOptionPane.YES_OPTION)) {
+						
+						int id = Integer.valueOf(ventanaGestionClientes.textFieldIdCliente.getText());
+						consultaCliente.eliminar(id);
+						ventanaGestionClientes.limpiarCasillas();
+						
+						ventanaGestionClientes.borrarElementosTabla();
+						consultaCliente.poblarTabla(ventanaGestionClientes.table);
+					}else {
+						
+						ventanaGestionClientes.limpiarCasillas();
+						ventanaGestionClientes.borrarElementosTabla();
+						consultaCliente.poblarTabla(ventanaGestionClientes.table);
+					}
+					
+				}else {
+					JOptionPane.showMessageDialog(null, "El ID ingresado no se encuentra registrado en el sistema");
+				}
+				
 				
 			}else {
 				JOptionPane.showMessageDialog(null, "Ingrese el ID del cliente que desea eliminar");
@@ -73,12 +97,30 @@ public class ControladorGestionClientes implements ActionListener {
 		
 		if(e.getSource() == ventanaGestionClientes.btnModificarCliente) {
 			if(ventanaGestionClientes.validarCamposLlenos()) {
-				ponerValoresEnModeloUsuario();
-				consultaCliente.modificar(cliente);
-				ventanaGestionClientes.limpiarCasillas();
 				
-				ventanaGestionClientes.borrarElementosTabla();
-				consultaCliente.poblarTabla(ventanaGestionClientes.table);
+				int cedulaCliente = Integer.parseInt(ventanaGestionClientes.textFieldIdCliente.getText());
+				
+				if(consultaCliente.confirmarExistenciaCliente(cedulaCliente) == true) {
+				
+					int reply = JOptionPane.showConfirmDialog(null, "Está seguro que desea modificar la informacion del cliente \n", "Advertencia", JOptionPane.YES_NO_OPTION);
+					if((reply == JOptionPane.YES_OPTION)) {
+						
+						ponerValoresEnModeloUsuario();
+						consultaCliente.modificar(cliente);
+						
+						ventanaGestionClientes.limpiarCasillas();
+						ventanaGestionClientes.borrarElementosTabla();
+						consultaCliente.poblarTabla(ventanaGestionClientes.table);
+					}else {
+						
+						ventanaGestionClientes.limpiarCasillas();
+						ventanaGestionClientes.borrarElementosTabla();
+						consultaCliente.poblarTabla(ventanaGestionClientes.table);
+					}
+					
+				}else {
+					JOptionPane.showMessageDialog(null, "El cliente no se encuentra registrado en el sistema");
+				}
 				
 			}else {
 				JOptionPane.showMessageDialog(null, "Complete todos los campos con el formato correcto");
@@ -88,12 +130,30 @@ public class ControladorGestionClientes implements ActionListener {
 		
 		if(e.getSource() == ventanaGestionClientes.btnRegistrarCliente) {
 			if(ventanaGestionClientes.validarCamposLlenos()) {
-				ponerValoresEnModeloUsuario();
-				consultaCliente.registrar(cliente);
-				ventanaGestionClientes.limpiarCasillas();
 				
-				ventanaGestionClientes.borrarElementosTabla();
-				consultaCliente.poblarTabla(ventanaGestionClientes.table);
+				int cedulaCliente = Integer.parseInt(ventanaGestionClientes.textFieldIdCliente.getText());
+				
+				if(consultaCliente.confirmarExistenciaCliente(cedulaCliente)==false) {
+					
+					String nombre = (ventanaGestionClientes.textFieldNombreCliente.getText().toLowerCase());
+					int reply = JOptionPane.showConfirmDialog(null, "Está seguro que desea agregar el cliente \n "+ "'"+nombre+"'", "Advertencia", JOptionPane.YES_NO_OPTION);
+					
+					if((reply == JOptionPane.YES_OPTION )) {
+						
+						ponerValoresEnModeloUsuario();
+						consultaCliente.registrar(cliente);
+						ventanaGestionClientes.limpiarCasillas();
+						
+						ventanaGestionClientes.borrarElementosTabla();
+						consultaCliente.poblarTabla(ventanaGestionClientes.table);
+					}else {
+						ventanaGestionClientes.limpiarCasillas();
+						consultaCliente.poblarTabla(ventanaGestionClientes.table);
+					}
+					
+				}else {
+					JOptionPane.showMessageDialog(null, "El cliente ya se encuentra registrado en el sistema");
+				}
 				
 			}else {
 			
@@ -107,14 +167,6 @@ public class ControladorGestionClientes implements ActionListener {
 			ventanaGestionClientes.limpiarCasillas();
 		}
 		
-		
-		if(e.getSource() == ventanaGestionClientes.btnSeleccionar) {
-			int fila = ventanaGestionClientes.table.getSelectedRow();
-			ponerValoresTablaEnCasillas(fila);
-			
-			ventanaGestionClientes.borrarElementosTabla();
-			
-		}
 		
 		
 		if(e.getSource() == ventanaGestionClientes.btnListaDeClientes) {
@@ -163,6 +215,40 @@ public class ControladorGestionClientes implements ActionListener {
 		ventanaGestionClientes.textFieldNombreCliente.setText((String) ventanaGestionClientes.table.getValueAt(fila, 1));
 		ventanaGestionClientes.textFieldTelefonoCliente.setText((String) ventanaGestionClientes.table.getValueAt(fila, 2));
 	
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
+		if(e.getSource() == ventanaGestionClientes.table) {
+			int fila = ventanaGestionClientes.table.getSelectedRow();
+			ponerValoresTablaEnCasillas(fila);
+			ventanaGestionClientes.borrarElementosTabla();
+		}
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 

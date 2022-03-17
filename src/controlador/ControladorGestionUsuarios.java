@@ -2,6 +2,9 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -9,7 +12,7 @@ import modelo.ConsultaUsuario;
 import modelo.Usuario;
 import ventanas.VentanaGestionUsuarios;
 
-public class ControladorGestionUsuarios implements ActionListener{
+public class ControladorGestionUsuarios implements ActionListener, MouseListener{
 	
 	
 	VentanaGestionUsuarios ventanaGestionUsuarios;
@@ -23,8 +26,8 @@ public class ControladorGestionUsuarios implements ActionListener{
 		this.ventanaGestionUsuarios.btnModificarUsuario.addActionListener(this);
 		this.ventanaGestionUsuarios.btnRegistrar.addActionListener(this);
 		this.ventanaGestionUsuarios.btnLimpiar.addActionListener(this);
-		this.ventanaGestionUsuarios.btnSeleccionar.addActionListener(this);
 		this.ventanaGestionUsuarios.btnTraerInfoDB.addActionListener(this);
+		this.ventanaGestionUsuarios.table.addMouseListener(this);
 		consultaUsuario.poblarTabla(ventanaGestionUsuarios.table);
 	}
 
@@ -60,12 +63,32 @@ public class ControladorGestionUsuarios implements ActionListener{
 		//metodo para eliminar un usuario de la base de datos
 		if(e.getSource() == ventanaGestionUsuarios.btnEliminarUsuario) {
 				if(ventanaGestionUsuarios.textFieldIdUsuario.getText().isEmpty()==false) {
-					int id = Integer.valueOf(ventanaGestionUsuarios.textFieldIdUsuario.getText());
-					consultaUsuario.eliminar(id);
-					ventanaGestionUsuarios.limpiarCasillas();
 					
-					ventanaGestionUsuarios.borrarElementosTabla();
-					consultaUsuario.poblarTabla(ventanaGestionUsuarios.table);
+					int cedulaUsuario = Integer.parseInt(ventanaGestionUsuarios.textFieldIdUsuario.getText());
+					
+					if(consultaUsuario.confirmarExistenciaUsuario(cedulaUsuario) == true) {
+						
+						int reply = JOptionPane.showConfirmDialog(null, "Está seguro que desea eliminar el usuario del sistema \n", "Advertencia", JOptionPane.YES_NO_OPTION);
+						
+						if((reply == JOptionPane.YES_OPTION)) {
+							
+							
+							consultaUsuario.eliminar(cedulaUsuario);
+							
+							ventanaGestionUsuarios.limpiarCasillas();
+							ventanaGestionUsuarios.borrarElementosTabla();
+							consultaUsuario.poblarTabla(ventanaGestionUsuarios.table);
+							
+						}else {
+							
+							ventanaGestionUsuarios.limpiarCasillas();
+							ventanaGestionUsuarios.borrarElementosTabla();
+							consultaUsuario.poblarTabla(ventanaGestionUsuarios.table);
+						}
+						
+					}else {
+						JOptionPane.showMessageDialog(null, "El ID ingresado no se encuentra registrado en el sistema");
+					}
 					
 				}else {
 					JOptionPane.showMessageDialog(null, "Ingrese el ID del empleado que desea eliminar");
@@ -76,13 +99,33 @@ public class ControladorGestionUsuarios implements ActionListener{
 		if(e.getSource() == ventanaGestionUsuarios.btnModificarUsuario) {
 			
 			if(ventanaGestionUsuarios.validarCamposLlenos()) {
-				ponerValoresEnModeloUsuario();
-				consultaUsuario.modificar(empleado);
-				ventanaGestionUsuarios.limpiarCasillas();
 				
-				ventanaGestionUsuarios.borrarElementosTabla();
-				consultaUsuario.poblarTabla(ventanaGestionUsuarios.table);
+				int cedulaUsuario = Integer.parseInt(ventanaGestionUsuarios.textFieldIdUsuario.getText());
 				
+				if(consultaUsuario.confirmarExistenciaUsuario(cedulaUsuario) == true) {
+					
+					int reply = JOptionPane.showConfirmDialog(null, "Está seguro que desea modificar la informacion del usuario \n", "Advertencia", JOptionPane.YES_NO_OPTION);
+					if((reply == JOptionPane.YES_OPTION)) {
+						
+					
+						ponerValoresEnModeloUsuario();
+						consultaUsuario.modificar(empleado);
+						
+						ventanaGestionUsuarios.limpiarCasillas();
+						ventanaGestionUsuarios.borrarElementosTabla();
+						consultaUsuario.poblarTabla(ventanaGestionUsuarios.table);
+						
+					}else {
+						
+						ventanaGestionUsuarios.limpiarCasillas();
+						ventanaGestionUsuarios.borrarElementosTabla();
+						consultaUsuario.poblarTabla(ventanaGestionUsuarios.table);
+					}
+						
+					
+				}else {
+					JOptionPane.showMessageDialog(null, "El usuario no se encuentra registrado en el sistema");
+				}
 				
 			}else {
 				JOptionPane.showMessageDialog(null, "Complete todos los campos con el formato correcto");
@@ -94,16 +137,36 @@ public class ControladorGestionUsuarios implements ActionListener{
 		if(e.getSource() == ventanaGestionUsuarios.btnRegistrar) {
 			
 			if(ventanaGestionUsuarios.validarCamposLlenos()) {
-				ponerValoresEnModeloUsuario();
-				consultaUsuario.registrar(empleado);
-				ventanaGestionUsuarios.limpiarCasillas();
 				
-				ventanaGestionUsuarios.borrarElementosTabla();
-				consultaUsuario.poblarTabla(ventanaGestionUsuarios.table);
+				int cedulaUsuario = Integer.parseInt(ventanaGestionUsuarios.textFieldIdUsuario.getText());
+				
+				if(consultaUsuario.confirmarExistenciaUsuario(cedulaUsuario)==false) {
+					
+					String nombre = (ventanaGestionUsuarios.textFieldNombreUsuario.getText().toLowerCase());
+					int reply = JOptionPane.showConfirmDialog(null, "Está seguro que desea agregar el usuario \n "+ "'"+nombre+"'", "Advertencia", JOptionPane.YES_NO_OPTION);
+					
+					if((reply == JOptionPane.YES_OPTION )) {
+						
+						ponerValoresEnModeloUsuario();
+						consultaUsuario.registrar(empleado);
+						
+						ventanaGestionUsuarios.limpiarCasillas();
+						ventanaGestionUsuarios.borrarElementosTabla();
+						consultaUsuario.poblarTabla(ventanaGestionUsuarios.table);
+						
+					}else {
+						ventanaGestionUsuarios.limpiarCasillas();
+						ventanaGestionUsuarios.borrarElementosTabla();
+						consultaUsuario.poblarTabla(ventanaGestionUsuarios.table);
+					}
+					
+				}else {
+					JOptionPane.showMessageDialog(null, "El usuario ya se encuentra registrado en el sistema");
+				}
 				
 			}else {
 			
-			JOptionPane.showMessageDialog(null, "Complete todos los campos con el formato correcto");
+				JOptionPane.showMessageDialog(null, "Complete todos los campos con el formato correcto");
 			}
 		}
 		
@@ -112,15 +175,6 @@ public class ControladorGestionUsuarios implements ActionListener{
 			ventanaGestionUsuarios.limpiarCasillas();
 		}
 		
-		//metodo para seleccionar un registro de la tabla y poner sus valores en las casillas
-		if(e.getSource() == ventanaGestionUsuarios.btnSeleccionar) {
-
-			int fila = ventanaGestionUsuarios.table.getSelectedRow();
-			
-			ponerValoresTablaEnCasillas(fila);
-			ventanaGestionUsuarios.borrarElementosTabla();
-			
-		}
 		
 		if(e.getSource() == ventanaGestionUsuarios.btnTraerInfoDB) {
 			ventanaGestionUsuarios.borrarElementosTabla();
@@ -172,6 +226,41 @@ public class ControladorGestionUsuarios implements ActionListener{
 		ventanaGestionUsuarios.textFieldNombreUsuario.setText((String) ventanaGestionUsuarios.table.getValueAt(fila, 1));
 		ventanaGestionUsuarios.textFieldTelefonoUsuario.setText((String) ventanaGestionUsuarios.table.getValueAt(fila, 2));
 		ventanaGestionUsuarios.textFieldPasswordUsuario.setText((String) ventanaGestionUsuarios.table.getValueAt(fila, 3));
+		
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+		if(e.getSource() == ventanaGestionUsuarios.table) {
+			int fila = ventanaGestionUsuarios.table.getSelectedRow();
+			ponerValoresTablaEnCasillas(fila);
+			ventanaGestionUsuarios.borrarElementosTabla();
+		}
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
 		
 	}
 	
