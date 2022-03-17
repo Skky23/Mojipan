@@ -37,15 +37,12 @@ public class ControladorGestionInsumos implements ActionListener, MouseListener 
 		
 		if(e.getSource() == ventanaGestionInsumos.btnBuscarItem) {
 						
-			if(ventanaGestionInsumos.textFieldBuscarItem.getText().isEmpty() || ventanaGestionInsumos.comboBoxArgumentoBusqueda.getItemAt(0) == "") {
+			if((ventanaGestionInsumos.textFieldBuscarItem.getText().isEmpty()) || (ventanaGestionInsumos.comboBoxArgumentoBusqueda.getSelectedItem() == "")) {
 				JOptionPane.showMessageDialog(null, "Indique el ID del producto o el nombre");
 			}else {
 				ventanaGestionInsumos.borrarElementosTabla();
-				
 				String parametroBusqueda = ventanaGestionInsumos.parametroBusquedaItem((ventanaGestionInsumos.comboBoxArgumentoBusqueda));
-				
 				consultaInsumos.buscar(parametroBusqueda, ventanaGestionInsumos.textFieldBuscarItem, ventanaGestionInsumos.table);
-				
 				ventanaGestionInsumos.textFieldBuscarItem.setText(null);
 				ventanaGestionInsumos.comboBoxArgumentoBusqueda.setSelectedIndex(0);
 			}
@@ -62,7 +59,17 @@ public class ControladorGestionInsumos implements ActionListener, MouseListener 
 			}else {
 				int reply = JOptionPane.showConfirmDialog(null, "Está seguro que desea agregar el producto \n "+ " ' " + nombre + " ' ", "Advertencia", JOptionPane.YES_NO_OPTION);
 				if((reply == JOptionPane.YES_OPTION) && existe==true) {
-					JOptionPane.showMessageDialog(null, "El producto ya existe, modifíquelo");
+					if(consultaInsumos.costosAntiguos(ventanaGestionInsumos.textFieldNombreProducto)==consultaInsumos.costosNuevos(ventanaGestionInsumos)) {
+						consultaInsumos.modificarSinCosto(ventanaGestionInsumos, consultaInsumos.costosAntiguos(ventanaGestionInsumos.textFieldNombreProducto));
+						ventanaGestionInsumos.limpiarCasillas();
+						ventanaGestionInsumos.borrarElementosTabla();
+						consultaInsumos.poblarTabla(ventanaGestionInsumos.table);
+					}else {
+						consultaInsumos.modificar(ventanaGestionInsumos,consultaInsumos.costosAntiguos(ventanaGestionInsumos.textFieldNombreProducto));
+						ventanaGestionInsumos.limpiarCasillas();
+						ventanaGestionInsumos.borrarElementosTabla();
+						consultaInsumos.poblarTabla(ventanaGestionInsumos.table);
+					}
 				}else {
 					if(reply == JOptionPane.YES_OPTION && existe==false){
 						consultaInsumos.registrar(ventanaGestionInsumos);
@@ -75,13 +82,7 @@ public class ControladorGestionInsumos implements ActionListener, MouseListener 
 			}
 		}
 		
-		if(e.getSource() == ventanaGestionInsumos.btnModificarItem) {
-			consultaInsumos.modificar(ventanaGestionInsumos);
-			
-			ventanaGestionInsumos.limpiarCasillas();
-			
-			ventanaGestionInsumos.borrarElementosTabla();
-			consultaInsumos.poblarTabla(ventanaGestionInsumos.table);
+		if(e.getSource() == ventanaGestionInsumos.btnModificarItem) {		
 		}
 		
 		if(e.getSource() == ventanaGestionInsumos.btnEliminarItem) {
