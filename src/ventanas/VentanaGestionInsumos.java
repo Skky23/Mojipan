@@ -247,7 +247,7 @@ public class VentanaGestionInsumos extends JPanel {
 		textFieldIdItem.setBounds(30, 99, 244, 20);
 		add(textFieldIdItem);
 		
-		btnRegistrarItem = new JButton("REGISTRAR");
+		btnRegistrarItem = new JButton("AGREGAR");
 		btnRegistrarItem.setForeground(Color.WHITE);
 		btnRegistrarItem.setFont(new Font("Roboto", Font.BOLD, 12));
 		btnRegistrarItem.setBorder(null);
