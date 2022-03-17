@@ -38,7 +38,7 @@ public class VentanaGestionInsumos extends JPanel {
 	public JTextField textFieldNombreProducto;
 	public JTextField textFieldIdItem;
 	public JComboBox comboBoxArgumentoBusqueda;
-	private JTextField textField;
+	public JTextField textFieldCantidadGramos;
 	
 
 	/**
@@ -121,7 +121,7 @@ public class VentanaGestionInsumos extends JPanel {
 		table.setBackground(Color.WHITE);
 		
 		model = new DefaultTableModel();
-		Object[] column = {"ID", "Nombre", "Cantidad Disponible", "Costo Unidad", "Costo Total"};
+		Object[] column = {"ID", "Nombre", "Cantidad Disponible", "Costo Unidad", "Costo Total", "Costo por gramo"};
 		Object[] row = new Object[0];
 		model.setColumnIdentifiers(column);
 		table.setModel(model);
@@ -316,13 +316,13 @@ public class VentanaGestionInsumos extends JPanel {
 		separator_7_1_1_1_1.setBounds(293, 183, 247, 2);
 		add(separator_7_1_1_1_1);
 		
-		textField = new JTextField();
-		textField.setFont(new Font("Dialog", Font.PLAIN, 14));
-		textField.setColumns(10);
-		textField.setBorder(null);
-		textField.setBackground(Color.WHITE);
-		textField.setBounds(293, 162, 247, 20);
-		add(textField);
+		textFieldCantidadGramos = new JTextField();
+		textFieldCantidadGramos.setFont(new Font("Dialog", Font.PLAIN, 14));
+		textFieldCantidadGramos.setColumns(10);
+		textFieldCantidadGramos.setBorder(null);
+		textFieldCantidadGramos.setBackground(Color.WHITE);
+		textFieldCantidadGramos.setBounds(293, 162, 247, 20);
+		add(textFieldCantidadGramos);
 
 	}
 	
@@ -332,6 +332,7 @@ public class VentanaGestionInsumos extends JPanel {
 		textFieldCostoUnidad.setText(null);
 		textFieldNombreProducto.setText(null);
 		textFieldIdItem.setText(null);
+		textFieldCantidadGramos.setText(null);
 	}
 	
 	public void borrarElementosTabla() {	 

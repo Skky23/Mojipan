@@ -84,12 +84,14 @@ public class ConsultaInsumos extends Conexion {
 			String nombre = ((ventanaGestionInsumos.textFieldNombreProducto.getText()).toString()).toLowerCase();
 			int cantidad = Integer.parseInt(ventanaGestionInsumos.textFieldCantidad.getText());
 			int costoUnidad = Integer.parseInt(ventanaGestionInsumos.textFieldCostoUnidad.getText());
+			int cantidadGramos = Integer.parseInt(ventanaGestionInsumos.textFieldCantidadGramos.getText());
 			int costoTotal = cantidad*costoUnidad;
-			int costoGramo = costoTotal/cantidad;
+			int gramosTotal = cantidad*cantidadGramos;
+			int costoGramo = costoTotal/gramosTotal;
 
 				Connection con = getConnection();
-		        String sql = "INSERT INTO insumos (nombre_insumo, cantidad, costo_por_unidad, costo_total)"
-		        		+ "values ('"+nombre+"', '"+cantidad+"','"+costoUnidad+"','"+costoTotal+"')";
+		        String sql = "INSERT INTO insumos (nombre_insumo, cantidad, costo_por_unidad, costo_total, costo_por_gramo, cantidad_gramos_total)"
+		        		+ "values ('"+nombre+"', '"+cantidad+"','"+costoUnidad+"','"+costoTotal+"','"+costoGramo+"','"+gramosTotal+"')";
 		        
 		        try{
 		        	 Statement st = con.createStatement();
@@ -152,12 +154,15 @@ public class ConsultaInsumos extends Conexion {
 	    	String nombre = ventanaGestionInsumos.textFieldNombreProducto.getText().toLowerCase();
 	    	int cantidad = Integer.parseInt(ventanaGestionInsumos.textFieldCantidad.getText());
 			int costoUnidad = Integer.parseInt(ventanaGestionInsumos.textFieldCostoUnidad.getText());
+			int cantidadGramos = Integer.parseInt(ventanaGestionInsumos.textFieldCantidadGramos.getText());
 			int costoUnidadPromedio = promedioCostos((int)costos.get(1),costoUnidad, (int)costos.get(0), cantidad);
 			int cantidadNueva = cantidad+(int)costos.get(0);
+			int cantidadGramosTotal = cantidadGramos*cantidad;
 			int costoTotalPromedio = costoUnidadPromedio*cantidadNueva;
+			float costoGramo = costoTotalPromedio / cantidadGramosTotal;
 			
 			Connection con = getConnection();		
-			String sql = "UPDATE insumos SET cantidad='"+cantidadNueva+"', costo_por_unidad='"+costoUnidadPromedio+"', costo_total='"+costoTotalPromedio+"' WHERE nombre_insumo='"+nombre+"'";
+			String sql = "UPDATE insumos SET cantidad='"+cantidadNueva+"', costo_por_unidad='"+costoUnidadPromedio+"', costo_total='"+costoTotalPromedio+"', costo_por_gramo='"+costoGramo+"', cantidad_gramos_total='"+cantidadGramosTotal+"' WHERE nombre_insumo='"+nombre+"'";
 			        	
 		        try{
 		        	Statement st = con.createStatement();
@@ -193,9 +198,11 @@ public class ConsultaInsumos extends Conexion {
 					String nombre = rs.getString("nombre_insumo");
 					int cantidad = rs.getInt("cantidad");
 					int costoUnidad = rs.getInt("costo_por_unidad");
-					int costoTotal = cantidad*costoUnidad;
+					int costoTotal = rs.getInt("costo_total");
+					int costoGramo = rs.getInt("costo_por_gramo");
+					int cantidadGramosTotal = rs.getInt("cantidad_gramos_total");
 					
-	        	Object tbData[] = {id, nombre, cantidad, costoUnidad, costoTotal};
+	        	Object tbData[] = {id, nombre, cantidad, costoUnidad, costoTotal, costoGramo, cantidadGramosTotal};
 	        	DefaultTableModel tblModel = (DefaultTableModel)table.getModel();
 	        	tblModel.addRow(tbData);
 	           }     
@@ -268,11 +275,14 @@ public class ConsultaInsumos extends Conexion {
 	    	String nombre = ventanaGestionInsumos.textFieldNombreProducto.getText().toLowerCase();
 	    	int cantidad = Integer.parseInt(ventanaGestionInsumos.textFieldCantidad.getText());
 			int costoUnidad = Integer.parseInt(ventanaGestionInsumos.textFieldCostoUnidad.getText());
+			int cantidadGramos = Integer.parseInt(ventanaGestionInsumos.textFieldCantidadGramos.getText());
 			int cantidadNueva = cantidad+(int)costos.get(0);
 			int costoTotal = costoUnidad*cantidadNueva;
+			int cantidadGramosTotal = cantidadGramos*cantidad;
+			float costoGramo = costoTotal/cantidadGramosTotal;
 			
 			Connection con = getConnection();		
-			String sql = "UPDATE insumos SET cantidad='"+cantidadNueva+"', costo_por_unidad='"+costoUnidad+"', costo_total='"+costoTotal+"' WHERE nombre_insumo='"+nombre+"'";
+			String sql = "UPDATE insumos SET cantidad='"+cantidadNueva+"', costo_por_unidad='"+costoUnidad+"', costo_total='"+costoTotal+"', costo_por_gramo='"+costoGramo+"', cantidad_gramos_total='"+cantidadGramosTotal+"' WHERE nombre_insumo='"+nombre+"'";
 			        	
 		        try{
 		        	Statement st = con.createStatement();
