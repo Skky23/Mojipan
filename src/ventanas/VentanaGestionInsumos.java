@@ -253,6 +253,7 @@ public class VentanaGestionInsumos extends JPanel {
 		
 		btnRegistrarItem = new JButton("AGREGAR");
 		btnRegistrarItem.setIcon(new ImageIcon(VentanaGestionInsumos.class.getResource("/imagenes/iconAgregar.png")));
+
 		btnRegistrarItem.setForeground(Color.WHITE);
 		btnRegistrarItem.setFont(new Font("Roboto", Font.BOLD, 12));
 		btnRegistrarItem.setBorder(null);
