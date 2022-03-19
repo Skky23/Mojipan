@@ -49,14 +49,6 @@ public class ControladorGestionInventario implements ActionListener {
 			
 		}
 		
-		if(e.getSource() == ventanaGestionInventario.btnRegistrarItem) {
-			consultaInventario.registrar(ventanaGestionInventario);
-			ventanaGestionInventario.limpiarCasillas();
-			
-			ventanaGestionInventario.borrarElementosTabla();
-			consultaInventario.poblarTabla(ventanaGestionInventario.table);
-		}
-		
 		if(e.getSource() == ventanaGestionInventario.btnModificarItem) {
 			consultaInventario.modificar(ventanaGestionInventario);
 			
@@ -64,20 +56,6 @@ public class ControladorGestionInventario implements ActionListener {
 			
 			ventanaGestionInventario.borrarElementosTabla();
 			consultaInventario.poblarTabla(ventanaGestionInventario.table);
-		}
-		
-		if(e.getSource() == ventanaGestionInventario.btnEliminarItem) {
-			if(ventanaGestionInventario.textFieldIdItem.getText().isEmpty()==false) {			
-				int id = Integer.valueOf(ventanaGestionInventario.textFieldIdItem.getText());
-				consultaInventario.eliminar(id);
-				ventanaGestionInventario.limpiarCasillas();
-				
-				ventanaGestionInventario.borrarElementosTabla();
-				consultaInventario.poblarTabla(ventanaGestionInventario.table);
-				
-			}else {
-				JOptionPane.showMessageDialog(null, "Ingrese el ID del producto que desea eliminar");
-			}
 		}
 		
 		if(e.getSource() == ventanaGestionInventario.btnSeleccionar) {
