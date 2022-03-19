@@ -22,13 +22,21 @@ import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.ImageIcon;
 
 public class VentanaGestionRecetas extends JPanel {
 	public JTable table;
 	DefaultTableModel model;
-	public JButton btnBuscarItem;
-	public JComboBox comboBoxArgumentoBusqueda;
-	
+	public JButton btnObtenerReceta;
+	public JComboBox comboBoxRecetas;
+	public JTextField textFieldCantidadProducto;
+	public JTextField textFieldPesoUnidad;
+	public JTextField textFieldCostoUnidad;
+	public JTextField textFieldMargenGanancia;
+	public JTextField textFieldPrecioUnidad;
+	public JButton btnCalcularPrecio;
+	public JButton btnCalcularCostoUnidad;
+	public JButton btnCrearProductos;
 
 	/**
 	 * Create the panel.
@@ -47,20 +55,21 @@ public class VentanaGestionRecetas extends JPanel {
 		separator_6.setBounds(30, 114, 828, 2);
 		add(separator_6);
 		
-		btnBuscarItem = new JButton("BUSCAR");
-		btnBuscarItem.addActionListener(new ActionListener() {
+		btnObtenerReceta = new JButton("TRAER RECETA");
+		btnObtenerReceta.setIcon(new ImageIcon(VentanaGestionRecetas.class.getResource("/imagenes/iconLibro.png")));
+		btnObtenerReceta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnBuscarItem.setForeground(Color.WHITE);
-		btnBuscarItem.setFont(new Font("Roboto", Font.BOLD, 12));
-		btnBuscarItem.setBorder(null);
-		btnBuscarItem.setBackground(new Color(159,11,47));
-		btnBuscarItem.setBounds(249, 79, 142, 25);
-		add(btnBuscarItem);
+		btnObtenerReceta.setForeground(Color.WHITE);
+		btnObtenerReceta.setFont(new Font("Roboto", Font.BOLD, 12));
+		btnObtenerReceta.setBorder(null);
+		btnObtenerReceta.setBackground(new Color(159,11,47));
+		btnObtenerReceta.setBounds(249, 79, 162, 25);
+		add(btnObtenerReceta);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(30, 133, 825, 300);
+		scrollPane.setBounds(30, 133, 825, 170);
 		add(scrollPane);
 	
 		scrollPane.addMouseListener(new MouseAdapter() {
@@ -73,7 +82,7 @@ public class VentanaGestionRecetas extends JPanel {
 		table.setBackground(Color.WHITE);
 		
 		model = new DefaultTableModel();
-		Object[] column = {"ID", "Nombre", "Cantidad Disponible", "Costo Unidad", "Costo Total"};
+		Object[] column = {"Nombre Ingrediente", "Peso(gr)", "Costo Gramo", "Costo Total"};
 		Object[] row = new Object[0];
 		model.setColumnIdentifiers(column);
 		table.setModel(model);
@@ -81,11 +90,90 @@ public class VentanaGestionRecetas extends JPanel {
 		scrollPane.setViewportView(table);
 		table.setBorder(new LineBorder(new Color(0, 0, 0)));
 		
-		comboBoxArgumentoBusqueda = new JComboBox();
-		comboBoxArgumentoBusqueda.setModel(new DefaultComboBoxModel(new String[] {"", "ID", "Nombre"}));
-		comboBoxArgumentoBusqueda.setFont(new Font("Roboto", Font.PLAIN, 14));
-		comboBoxArgumentoBusqueda.setBounds(30, 78, 177, 25);
-		add(comboBoxArgumentoBusqueda);
+		comboBoxRecetas = new JComboBox();
+		comboBoxRecetas.setModel(new DefaultComboBoxModel(new String[] {"", "pan rey barra"}));
+		comboBoxRecetas.setFont(new Font("Roboto", Font.PLAIN, 14));
+		comboBoxRecetas.setBounds(30, 78, 177, 25);
+		add(comboBoxRecetas);
+		
+		JLabel lblNewLabel_1 = new JLabel("Numero de Unidades:");
+		lblNewLabel_1.setFont(new Font("Roboto", Font.PLAIN, 14));
+		lblNewLabel_1.setBounds(30, 320, 142, 20);
+		add(lblNewLabel_1);
+		
+		textFieldCantidadProducto = new JTextField();
+		textFieldCantidadProducto.setBounds(209, 321, 104, 20);
+		add(textFieldCantidadProducto);
+		textFieldCantidadProducto.setColumns(10);
+		
+		JLabel lblNewLabel_1_1 = new JLabel("Peso Unidad:");
+		lblNewLabel_1_1.setFont(new Font("Roboto", Font.PLAIN, 14));
+		lblNewLabel_1_1.setBounds(344, 320, 96, 20);
+		add(lblNewLabel_1_1);
+		
+		textFieldPesoUnidad = new JTextField();
+		textFieldPesoUnidad.setColumns(10);
+		textFieldPesoUnidad.setBounds(450, 321, 104, 20);
+		add(textFieldPesoUnidad);
+		
+		JLabel lblNewLabel_1_2 = new JLabel("Costo Unidad:");
+		lblNewLabel_1_2.setFont(new Font("Roboto", Font.PLAIN, 14));
+		lblNewLabel_1_2.setBounds(30, 351, 142, 20);
+		add(lblNewLabel_1_2);
+		
+		textFieldCostoUnidad = new JTextField();
+		textFieldCostoUnidad.setEditable(false);
+		textFieldCostoUnidad.setColumns(10);
+		textFieldCostoUnidad.setBounds(209, 352, 104, 20);
+		add(textFieldCostoUnidad);
+		
+		JLabel lblNewLabel_1_1_1 = new JLabel("Margen de Ganancia (%):");
+		lblNewLabel_1_1_1.setFont(new Font("Roboto", Font.PLAIN, 14));
+		lblNewLabel_1_1_1.setBounds(30, 382, 169, 20);
+		add(lblNewLabel_1_1_1);
+		
+		textFieldMargenGanancia = new JTextField();
+		textFieldMargenGanancia.setColumns(10);
+		textFieldMargenGanancia.setBounds(209, 383, 104, 20);
+		add(textFieldMargenGanancia);
+		
+		btnCalcularCostoUnidad = new JButton("CALCULAR COSTO UNIDAD");
+		btnCalcularCostoUnidad.setIcon(new ImageIcon(VentanaGestionRecetas.class.getResource("/imagenes/iconCalculadora.png")));
+		btnCalcularCostoUnidad.setForeground(Color.WHITE);
+		btnCalcularCostoUnidad.setFont(new Font("Roboto", Font.BOLD, 12));
+		btnCalcularCostoUnidad.setBorder(null);
+		btnCalcularCostoUnidad.setBackground(new Color(159, 11, 47));
+		btnCalcularCostoUnidad.setBounds(344, 370, 210, 20);
+		add(btnCalcularCostoUnidad);
+		
+		JLabel lblNewLabel_1_1_1_1 = new JLabel("Precio Unidad:");
+		lblNewLabel_1_1_1_1.setFont(new Font("Roboto", Font.PLAIN, 14));
+		lblNewLabel_1_1_1_1.setBounds(30, 413, 169, 20);
+		add(lblNewLabel_1_1_1_1);
+		
+		textFieldPrecioUnidad = new JTextField();
+		textFieldPrecioUnidad.setEditable(false);
+		textFieldPrecioUnidad.setColumns(10);
+		textFieldPrecioUnidad.setBounds(209, 414, 104, 20);
+		add(textFieldPrecioUnidad);
+		
+		btnCalcularPrecio = new JButton("CALCULAR PRECIO");
+		btnCalcularPrecio.setIcon(new ImageIcon(VentanaGestionRecetas.class.getResource("/imagenes/iconCalculadora.png")));
+		btnCalcularPrecio.setForeground(Color.WHITE);
+		btnCalcularPrecio.setFont(new Font("Roboto", Font.BOLD, 12));
+		btnCalcularPrecio.setBorder(null);
+		btnCalcularPrecio.setBackground(new Color(159, 11, 47));
+		btnCalcularPrecio.setBounds(344, 413, 210, 20);
+		add(btnCalcularPrecio);
+		
+		btnCrearProductos = new JButton("CREAR PRODUCTO");
+		btnCrearProductos.setIcon(new ImageIcon(VentanaGestionRecetas.class.getResource("/imagenes/iconAgregar.png")));
+		btnCrearProductos.setForeground(Color.WHITE);
+		btnCrearProductos.setFont(new Font("Roboto", Font.BOLD, 12));
+		btnCrearProductos.setBorder(null);
+		btnCrearProductos.setBackground(new Color(159, 11, 47));
+		btnCrearProductos.setBounds(30, 444, 283, 20);
+		add(btnCrearProductos);
 
 	}
 	
@@ -109,25 +197,10 @@ public class VentanaGestionRecetas extends JPanel {
 		
 	    switch (parametro) {
 	    
-        case "ID":
-        	paramentroSQL = "id_insumo"; 
-            break;
-        case "Nombre":
-        	paramentroSQL = "nombre_insumo";
+        case "pan rey barra":
+        	paramentroSQL = "panreybarra"; 
             break;
 	    }
 		return paramentroSQL;
 	}	
-	
-	/*public boolean validarCamposVacios() {
-		boolean camposVacios=false;
-		
-		if(textFieldNombreProducto.getText().isEmpty() || textFieldCantidad.getText().isEmpty() || textFieldCostoUnidad.getText().isEmpty()){
-			
-			camposVacios=true;
-		}else {
-			camposVacios=false;
-		}
-		return camposVacios;
-	}*/
 }

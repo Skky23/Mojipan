@@ -20,21 +20,18 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+import java.awt.SystemColor;
+import javax.swing.ImageIcon;
 
 public class VentanaGestionInventario extends JPanel {
 	public JTextField textFieldBuscarItem;
 	public JTable table;
 	DefaultTableModel model;
 	public JButton btnBuscarItem;
-	public JButton btnSeleccionar;
 	public 	JButton btnListaInventario;
-	public JButton btnRegistrarItem;
 	public JButton btnModificarItem;
-	public JButton btnEliminarItem;
 	public JButton btnLimpiar;
 	public JTextField textFieldCantidad;
-	public JTextField textFieldCostoUnidad;
-	public JTextField textFieldPrecioUnidad;
 	public JTextField textFieldNombreProducto;
 	public JTextField textFieldIdItem;
 	public JComboBox comboBoxArgumentoBusqueda;
@@ -54,7 +51,7 @@ public class VentanaGestionInventario extends JPanel {
 		add(lblNewLabel);
 		
 		JSeparator separator_6 = new JSeparator();
-		separator_6.setBounds(30, 257, 828, 2);
+		separator_6.setBounds(30, 183, 828, 2);
 		add(separator_6);
 		
 		textFieldBuscarItem = new JTextField();
@@ -83,15 +80,16 @@ public class VentanaGestionInventario extends JPanel {
 		textFieldBuscarItem.setColumns(10);
 		textFieldBuscarItem.setBorder(null);
 		textFieldBuscarItem.setBackground(Color.WHITE);
-		textFieldBuscarItem.setBounds(176, 270, 525, 20);
+		textFieldBuscarItem.setBounds(176, 196, 525, 20);
 		add(textFieldBuscarItem);
 		
 		JSeparator separator_7 = new JSeparator();
 		separator_7.setForeground(new Color(159,11,47));
-		separator_7.setBounds(176, 293, 525, 2);
+		separator_7.setBounds(176, 219, 525, 2);
 		add(separator_7);
 		
 		btnBuscarItem = new JButton("BUSCAR");
+		btnBuscarItem.setIcon(new ImageIcon(VentanaGestionInventario.class.getResource("/imagenes/iconBuscar.png")));
 		btnBuscarItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -100,15 +98,12 @@ public class VentanaGestionInventario extends JPanel {
 		btnBuscarItem.setFont(new Font("Roboto", Font.BOLD, 12));
 		btnBuscarItem.setBorder(null);
 		btnBuscarItem.setBackground(new Color(159,11,47));
-		btnBuscarItem.setBounds(711, 270, 142, 25);
+		btnBuscarItem.setBounds(711, 196, 142, 25);
 		add(btnBuscarItem);
 		
-		JScrollPane scrollPane_1 = new JScrollPane();
-		scrollPane_1.setBounds(30, 307, 823, 124);
-		add(scrollPane_1);
-		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane_1.setViewportView(scrollPane);
+		scrollPane.setBounds(30, 236, 823, 185);
+		add(scrollPane);
 		
 		table = new JTable();
 		table.setFont(new Font("Roboto", Font.PLAIN, 13));
@@ -123,25 +118,18 @@ public class VentanaGestionInventario extends JPanel {
 		scrollPane.setViewportView(table);
 		table.setBorder(new LineBorder(new Color(0, 0, 0)));
 		
-		btnSeleccionar = new JButton("SELECCIONAR");
-		btnSeleccionar.setForeground(Color.WHITE);
-		btnSeleccionar.setFont(new Font("Roboto", Font.BOLD, 12));
-		btnSeleccionar.setBorder(null);
-		btnSeleccionar.setBackground(new Color(159,11,47));
-		btnSeleccionar.setBounds(30, 442, 113, 25);
-		add(btnSeleccionar);
-		
 		btnListaInventario = new JButton("LISTA INVENTARIO");
+		btnListaInventario.setIcon(new ImageIcon(VentanaGestionInventario.class.getResource("/imagenes/iconLista.png")));
 		btnListaInventario.setForeground(Color.WHITE);
 		btnListaInventario.setFont(new Font("Roboto", Font.BOLD, 12));
 		btnListaInventario.setBorder(null);
 		btnListaInventario.setBackground(new Color(159,11,47));
-		btnListaInventario.setBounds(153, 442, 143, 25);
+		btnListaInventario.setBounds(30, 432, 165, 25);
 		add(btnListaInventario);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("Cantidad");
 		lblNewLabel_1_1.setFont(new Font("Roboto", Font.BOLD, 14));
-		lblNewLabel_1_1.setBounds(30, 139, 244, 17);
+		lblNewLabel_1_1.setBounds(562, 80, 244, 17);
 		add(lblNewLabel_1_1);
 		
 		textFieldCantidad = new JTextField();
@@ -169,73 +157,8 @@ public class VentanaGestionInventario extends JPanel {
 		textFieldCantidad.setColumns(10);
 		textFieldCantidad.setBorder(null);
 		textFieldCantidad.setBackground(Color.WHITE);
-		textFieldCantidad.setBounds(30, 158, 244, 20);
+		textFieldCantidad.setBounds(562, 99, 244, 20);
 		add(textFieldCantidad);
-		
-		textFieldCostoUnidad = new JTextField();
-		textFieldCostoUnidad.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyTyped(KeyEvent e) {
-				
-				char validar=e.getKeyChar();
-				
-				if(Character.isLetter(validar) || (e.getKeyChar()>32 && e.getKeyChar()<48) || (e.getKeyChar()>57 && e.getKeyChar()<65) || (e.getKeyChar()>90 && e.getKeyChar()<97) || (e.getKeyChar()>122 && e.getKeyChar()<127)) {
-					getToolkit().beep();
-					e.consume();
-					JOptionPane.showMessageDialog(null, "Ingresar solo numeros");
-				}
-				
-				if(textFieldCostoUnidad.getText().length()>= 7) {
-					getToolkit().beep();
-					e.consume();
-					JOptionPane.showMessageDialog(null, "Ingresar 7 numeros o menos");
-				
-				}
-			}
-		});
-		textFieldCostoUnidad.setFont(new Font("Roboto", Font.PLAIN, 14));
-		textFieldCostoUnidad.setColumns(10);
-		textFieldCostoUnidad.setBorder(null);
-		textFieldCostoUnidad.setBackground(Color.WHITE);
-		textFieldCostoUnidad.setBounds(293, 158, 247, 20);
-		add(textFieldCostoUnidad);
-		
-		JLabel lblNewLabel_1_1_1_1 = new JLabel("Costo Unidad");
-		lblNewLabel_1_1_1_1.setFont(new Font("Roboto", Font.BOLD, 14));
-		lblNewLabel_1_1_1_1.setBounds(293, 139, 247, 17);
-		add(lblNewLabel_1_1_1_1);
-		
-		textFieldPrecioUnidad = new JTextField();
-		textFieldPrecioUnidad.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyTyped(KeyEvent e) {
-				
-				char validar=e.getKeyChar();
-				
-				if(Character.isLetter(validar) || (e.getKeyChar()>32 && e.getKeyChar()<48) || (e.getKeyChar()>57 && e.getKeyChar()<65) || (e.getKeyChar()>90 && e.getKeyChar()<97) || (e.getKeyChar()>122 && e.getKeyChar()<127)) {
-					getToolkit().beep();
-					e.consume();
-					JOptionPane.showMessageDialog(null, "Ingresar solo numeros");
-				}
-				
-				if(textFieldPrecioUnidad.getText().length()>= 7) {
-					getToolkit().beep();
-					e.consume();
-					JOptionPane.showMessageDialog(null, "Ingresar 7 numeros o menos");
-				}
-			}
-		});
-		textFieldPrecioUnidad.setFont(new Font("Roboto", Font.PLAIN, 14));
-		textFieldPrecioUnidad.setColumns(10);
-		textFieldPrecioUnidad.setBorder(null);
-		textFieldPrecioUnidad.setBackground(Color.WHITE);
-		textFieldPrecioUnidad.setBounds(564, 99, 247, 20);
-		add(textFieldPrecioUnidad);
-		
-		JLabel lblNewLabel_1_1_3_2 = new JLabel("Precio Unidad");
-		lblNewLabel_1_1_3_2.setFont(new Font("Roboto", Font.BOLD, 14));
-		lblNewLabel_1_1_3_2.setBounds(564, 80, 247, 17);
-		add(lblNewLabel_1_1_3_2);
 		
 		JLabel lblNewLabel_1_1_1_1_1_1 = new JLabel("Nombre");
 		lblNewLabel_1_1_1_1_1_1.setFont(new Font("Roboto", Font.BOLD, 14));
@@ -243,6 +166,7 @@ public class VentanaGestionInventario extends JPanel {
 		add(lblNewLabel_1_1_1_1_1_1);
 		
 		textFieldNombreProducto = new JTextField();
+		textFieldNombreProducto.setEditable(false);
 		textFieldNombreProducto.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) {
@@ -263,8 +187,7 @@ public class VentanaGestionInventario extends JPanel {
 		});
 		textFieldNombreProducto.setFont(new Font("Roboto", Font.PLAIN, 14));
 		textFieldNombreProducto.setColumns(10);
-		textFieldNombreProducto.setBorder(null);
-		textFieldNombreProducto.setBackground(Color.WHITE);
+		textFieldNombreProducto.setBackground(SystemColor.menu);
 		textFieldNombreProducto.setBounds(293, 99, 247, 20);
 		add(textFieldNombreProducto);
 		
@@ -277,47 +200,32 @@ public class VentanaGestionInventario extends JPanel {
 		textFieldIdItem.setEditable(false);
 		textFieldIdItem.setFont(new Font("Roboto", Font.PLAIN, 14));
 		textFieldIdItem.setColumns(10);
-		textFieldIdItem.setBorder(null);
-		textFieldIdItem.setBackground(Color.WHITE);
+		textFieldIdItem.setBackground(SystemColor.menu);
 		textFieldIdItem.setBounds(30, 99, 244, 20);
 		add(textFieldIdItem);
 		
-		btnRegistrarItem = new JButton("REGISTRAR");
-		btnRegistrarItem.setForeground(Color.WHITE);
-		btnRegistrarItem.setFont(new Font("Roboto", Font.BOLD, 12));
-		btnRegistrarItem.setBorder(null);
-		btnRegistrarItem.setBackground(new Color(159,11,47));
-		btnRegistrarItem.setBounds(30, 221, 113, 25);
-		add(btnRegistrarItem);
-		
 		btnModificarItem = new JButton("MODIFICAR");
+		btnModificarItem.setIcon(new ImageIcon(VentanaGestionInventario.class.getResource("/imagenes/iconEditar.png")));
 		btnModificarItem.setForeground(Color.WHITE);
 		btnModificarItem.setFont(new Font("Roboto", Font.BOLD, 12));
 		btnModificarItem.setBorder(null);
 		btnModificarItem.setBackground(new Color(159,11,47));
-		btnModificarItem.setBounds(161, 221, 113, 25);
+		btnModificarItem.setBounds(30, 147, 113, 25);
 		add(btnModificarItem);
 		
-		btnEliminarItem = new JButton("ELIMINAR");
-		btnEliminarItem.setForeground(Color.WHITE);
-		btnEliminarItem.setFont(new Font("Roboto", Font.BOLD, 12));
-		btnEliminarItem.setBorder(null);
-		btnEliminarItem.setBackground(new Color(159,11,47));
-		btnEliminarItem.setBounds(293, 221, 113, 25);
-		add(btnEliminarItem);
-		
 		btnLimpiar = new JButton("LIMPIAR");
+		btnLimpiar.setIcon(new ImageIcon(VentanaGestionInventario.class.getResource("/imagenes/iconBarrer.png")));
 		btnLimpiar.setForeground(Color.WHITE);
 		btnLimpiar.setFont(new Font("Roboto", Font.BOLD, 12));
 		btnLimpiar.setBorder(null);
 		btnLimpiar.setBackground(new Color(159,11,47));
-		btnLimpiar.setBounds(427, 221, 113, 25);
+		btnLimpiar.setBounds(153, 147, 113, 25);
 		add(btnLimpiar);
 		
 		comboBoxArgumentoBusqueda = new JComboBox();
 		comboBoxArgumentoBusqueda.setModel(new DefaultComboBoxModel(new String[] {"", "ID", "Nombre"}));
 		comboBoxArgumentoBusqueda.setFont(new Font("Roboto", Font.PLAIN, 14));
-		comboBoxArgumentoBusqueda.setBounds(30, 270, 136, 25);
+		comboBoxArgumentoBusqueda.setBounds(30, 196, 136, 25);
 		add(comboBoxArgumentoBusqueda);
 		
 		JSeparator separator_7_1 = new JSeparator();
@@ -330,28 +238,16 @@ public class VentanaGestionInventario extends JPanel {
 		separator_7_1_1.setBounds(293, 122, 247, 2);
 		add(separator_7_1_1);
 		
-		JSeparator separator_7_1_2 = new JSeparator();
-		separator_7_1_2.setForeground(new Color(159,11,47));
-		separator_7_1_2.setBounds(564, 122, 247, 2);
-		add(separator_7_1_2);
-		
 		JSeparator separator_7_1_4 = new JSeparator();
 		separator_7_1_4.setForeground(new Color(159,11,47));
-		separator_7_1_4.setBounds(30, 181, 244, 2);
+		separator_7_1_4.setBounds(562, 122, 244, 2);
 		add(separator_7_1_4);
-		
-		JSeparator separator_7_1_1_1 = new JSeparator();
-		separator_7_1_1_1.setForeground(new Color(159,11,47));
-		separator_7_1_1_1.setBounds(293, 181, 247, 2);
-		add(separator_7_1_1_1);
 
 	}
 	
 	public void limpiarCasillas() {
 		
 		textFieldCantidad.setText(null);
-		textFieldCostoUnidad.setText(null);
-		textFieldPrecioUnidad.setText(null);
 		textFieldNombreProducto.setText(null);
 		textFieldIdItem.setText(null);		
 	}

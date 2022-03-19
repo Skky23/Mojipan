@@ -22,6 +22,7 @@ import java.sql.Date;
 import javax.swing.JComboBox;
 import javax.swing.SwingConstants;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
 
 public class VentanaGestionUsuarios extends JPanel {
 	
@@ -219,6 +220,7 @@ public class VentanaGestionUsuarios extends JPanel {
 		add(textFieldPasswordUsuario);
 		
 		btnRegistrar = new JButton("REGISTRAR");
+		btnRegistrar.setIcon(new ImageIcon(VentanaGestionUsuarios.class.getResource("/imagenes/iconAgregar.png")));
 		btnRegistrar.setFont(new Font("Roboto", Font.BOLD, 12));
 		btnRegistrar.setForeground(Color.WHITE);
 		btnRegistrar.setBorder(null);
@@ -227,6 +229,7 @@ public class VentanaGestionUsuarios extends JPanel {
 		add(btnRegistrar);
 		
 		btnModificarUsuario = new JButton("MODIFICAR");
+		btnModificarUsuario.setIcon(new ImageIcon(VentanaGestionUsuarios.class.getResource("/imagenes/iconEditar.png")));
 		btnModificarUsuario.setForeground(Color.WHITE);
 		btnModificarUsuario.setFont(new Font("Roboto", Font.BOLD, 12));
 		btnModificarUsuario.setBorder(null);
@@ -235,6 +238,7 @@ public class VentanaGestionUsuarios extends JPanel {
 		add(btnModificarUsuario);
 		
 		btnEliminarUsuario = new JButton("ELIMINAR");
+		btnEliminarUsuario.setIcon(new ImageIcon(VentanaGestionUsuarios.class.getResource("/imagenes/iconRemover.png")));
 		btnEliminarUsuario.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -294,6 +298,7 @@ public class VentanaGestionUsuarios extends JPanel {
 		add(separator_7);
 		
 		btnBuscarUsuario = new JButton("BUSCAR");
+		btnBuscarUsuario.setIcon(new ImageIcon(VentanaGestionUsuarios.class.getResource("/imagenes/iconBuscar.png")));
 		btnBuscarUsuario.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -326,6 +331,7 @@ public class VentanaGestionUsuarios extends JPanel {
 		table.setBorder(new LineBorder(new Color(0, 0, 0)));
 		
 		btnLimpiar = new JButton("LIMPIAR");
+		btnLimpiar.setIcon(new ImageIcon(VentanaGestionUsuarios.class.getResource("/imagenes/iconBarrer.png")));
 		btnLimpiar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -338,6 +344,7 @@ public class VentanaGestionUsuarios extends JPanel {
 		add(btnLimpiar);
 		
 		btnTraerInfoDB = new JButton("LISTA DE USUARIOS");
+		btnTraerInfoDB.setIcon(new ImageIcon(VentanaGestionUsuarios.class.getResource("/imagenes/iconLista.png")));
 		btnTraerInfoDB.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -346,7 +353,7 @@ public class VentanaGestionUsuarios extends JPanel {
 		btnTraerInfoDB.setFont(new Font("Roboto", Font.BOLD, 12));
 		btnTraerInfoDB.setBorder(null);
 		btnTraerInfoDB.setBackground(new Color(159,11,47));
-		btnTraerInfoDB.setBounds(30, 442, 138, 25);
+		btnTraerInfoDB.setBounds(30, 442, 156, 25);
 		add(btnTraerInfoDB);
 
 	}

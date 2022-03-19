@@ -2,6 +2,8 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.JOptionPane;
 
@@ -9,7 +11,7 @@ import modelo.ConsultaInventario;
 import modelo.Producto;
 import ventanas.VentanaGestionInventario;
 
-public class ControladorGestionInventario implements ActionListener {
+public class ControladorGestionInventario implements ActionListener, MouseListener {
 
 	VentanaGestionInventario ventanaGestionInventario;
 	Producto producto = new Producto();
@@ -18,12 +20,10 @@ public class ControladorGestionInventario implements ActionListener {
 	public ControladorGestionInventario(VentanaGestionInventario ventanaGestionInventario){
 		this.ventanaGestionInventario = ventanaGestionInventario;
 		this.ventanaGestionInventario.btnBuscarItem.addActionListener(this);
-		this.ventanaGestionInventario.btnEliminarItem.addActionListener(this);
 		this.ventanaGestionInventario.btnLimpiar.addActionListener(this);
 		this.ventanaGestionInventario.btnListaInventario.addActionListener(this);
 		this.ventanaGestionInventario.btnModificarItem.addActionListener(this);
-		this.ventanaGestionInventario.btnRegistrarItem.addActionListener(this);
-		this.ventanaGestionInventario.btnSeleccionar.addActionListener(this);
+		this.ventanaGestionInventario.table.addMouseListener(this);
 		consultaInventario.poblarTabla(ventanaGestionInventario.table);
 	}
 	
@@ -49,13 +49,6 @@ public class ControladorGestionInventario implements ActionListener {
 			
 		}
 		
-		if(e.getSource() == ventanaGestionInventario.btnRegistrarItem) {
-			consultaInventario.registrar(ventanaGestionInventario);
-			ventanaGestionInventario.limpiarCasillas();
-			
-			ventanaGestionInventario.borrarElementosTabla();
-			consultaInventario.poblarTabla(ventanaGestionInventario.table);
-		}
 		
 		if(e.getSource() == ventanaGestionInventario.btnModificarItem) {
 			consultaInventario.modificar(ventanaGestionInventario);
@@ -66,28 +59,6 @@ public class ControladorGestionInventario implements ActionListener {
 			consultaInventario.poblarTabla(ventanaGestionInventario.table);
 		}
 		
-		if(e.getSource() == ventanaGestionInventario.btnEliminarItem) {
-			if(ventanaGestionInventario.textFieldIdItem.getText().isEmpty()==false) {			
-				int id = Integer.valueOf(ventanaGestionInventario.textFieldIdItem.getText());
-				consultaInventario.eliminar(id);
-				ventanaGestionInventario.limpiarCasillas();
-				
-				ventanaGestionInventario.borrarElementosTabla();
-				consultaInventario.poblarTabla(ventanaGestionInventario.table);
-				
-			}else {
-				JOptionPane.showMessageDialog(null, "Ingrese el ID del producto que desea eliminar");
-			}
-		}
-		
-		if(e.getSource() == ventanaGestionInventario.btnSeleccionar) {
-			
-			int fila = ventanaGestionInventario.table.getSelectedRow();
-			
-			ponerValoresTablaEnCasillas(fila);
-			ventanaGestionInventario.borrarElementosTabla();
-			
-		}
 		
 		if(e.getSource() == ventanaGestionInventario.btnListaInventario) {
 			
@@ -109,11 +80,43 @@ public class ControladorGestionInventario implements ActionListener {
 		ventanaGestionInventario.textFieldIdItem.setText((ventanaGestionInventario.table.getValueAt(fila, 0)).toString());
 		ventanaGestionInventario.textFieldNombreProducto.setText((ventanaGestionInventario.table.getValueAt(fila, 1)).toString());
 		ventanaGestionInventario.textFieldCantidad.setText((ventanaGestionInventario.table.getValueAt(fila, 2)).toString());
-		ventanaGestionInventario.textFieldPrecioUnidad.setText((ventanaGestionInventario.table.getValueAt(fila, 3)).toString());
-		ventanaGestionInventario.textFieldCostoUnidad.setText((ventanaGestionInventario.table.getValueAt(fila, 4)).toString());
 
+	}
+
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
 		
+		if(e.getSource() == ventanaGestionInventario.table) {
+			
+			int fila = ventanaGestionInventario.table.getSelectedRow();
+			ponerValoresTablaEnCasillas(fila);
+			ventanaGestionInventario.borrarElementosTabla();
+		}
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
 		
 	}
 

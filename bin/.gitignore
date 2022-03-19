@@ -1,6 +1,4 @@
-/conectorpostgresql/
-/controlador/
-/imagenes/
-/modelo/
-/principal/
 /ventanas/
+/controlador/
+/modelo/
+/imagenes/
