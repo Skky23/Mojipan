@@ -227,7 +227,7 @@ public class VentanaPrincipal extends JFrame {
 		btnVentas.setBorder(null);
 		btnVentas.setBackground(new Color(159, 11, 47));
 		
-		btnReportes = new JButton("   Reportes");
+		btnReportes = new JButton("  Recetas");
 		btnReportes.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {

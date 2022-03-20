@@ -9,6 +9,7 @@ import modelo.Usuario;
 import ventanas.VentanaGestionClientes;
 import ventanas.VentanaGestionInsumos;
 import ventanas.VentanaGestionInventario;
+import ventanas.VentanaGestionRecetas;
 //import ventanas.VentanaGestionInventario;
 //import ventanas.VentanaGestionProveedores;
 import ventanas.VentanaGestionUsuarios;
@@ -32,6 +33,8 @@ public class ControladorMenuPrincipal implements ActionListener{
 	ControladorGestionInsumos controladorGestionInsumos;
 	ControladorVentas controladorVentas;
 	Usuario empleado;
+	VentanaGestionRecetas ventanaGestionRecetas;
+	ControladorRecetas controladorRecetas;
 	
 	
 public ControladorMenuPrincipal(VentanaPrincipal ventanaPrincipal, Usuario empleado) {
@@ -95,7 +98,9 @@ public ControladorMenuPrincipal(VentanaPrincipal ventanaPrincipal, Usuario emple
 		}
 	
 		if(e.getSource() == ventanaPrincipal.btnReportes) {
-			
+			ventanaGestionRecetas = new VentanaGestionRecetas();
+			controladorRecetas = new ControladorRecetas(ventanaGestionRecetas);
+			mostrarPanel(ventanaGestionRecetas);
 		}
 	
 		if(e.getSource() == ventanaPrincipal.btnSalir) {

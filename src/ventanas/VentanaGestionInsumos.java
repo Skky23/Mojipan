@@ -22,6 +22,7 @@ import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.ImageIcon;
 
 public class VentanaGestionInsumos extends JPanel {
 	public JTextField textFieldBuscarItem;
@@ -93,6 +94,7 @@ public class VentanaGestionInsumos extends JPanel {
 		add(separator_7);
 		
 		btnBuscarItem = new JButton("BUSCAR");
+		btnBuscarItem.setIcon(new ImageIcon(VentanaGestionInsumos.class.getResource("/imagenes/iconBuscar.png")));
 		btnBuscarItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -130,11 +132,12 @@ public class VentanaGestionInsumos extends JPanel {
 		table.setBorder(new LineBorder(new Color(0, 0, 0)));
 		
 		btnListaInventario = new JButton("LISTA INVENTARIO");
+		btnListaInventario.setIcon(new ImageIcon(VentanaGestionInsumos.class.getResource("/imagenes/iconLista.png")));
 		btnListaInventario.setForeground(Color.WHITE);
 		btnListaInventario.setFont(new Font("Roboto", Font.BOLD, 12));
 		btnListaInventario.setBorder(null);
 		btnListaInventario.setBackground(new Color(159,11,47));
-		btnListaInventario.setBounds(30, 441, 143, 25);
+		btnListaInventario.setBounds(30, 441, 166, 25);
 		add(btnListaInventario);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("Cantidad");
@@ -249,6 +252,8 @@ public class VentanaGestionInsumos extends JPanel {
 		add(textFieldIdItem);
 		
 		btnRegistrarItem = new JButton("AGREGAR");
+		btnRegistrarItem.setIcon(new ImageIcon(VentanaGestionInsumos.class.getResource("/imagenes/iconAgregar.png")));
+
 		btnRegistrarItem.setForeground(Color.WHITE);
 		btnRegistrarItem.setFont(new Font("Roboto", Font.BOLD, 12));
 		btnRegistrarItem.setBorder(null);
@@ -257,6 +262,7 @@ public class VentanaGestionInsumos extends JPanel {
 		add(btnRegistrarItem);
 		
 		btnModificarItem = new JButton("MODIFICAR");
+		btnModificarItem.setIcon(new ImageIcon(VentanaGestionInsumos.class.getResource("/imagenes/iconEditar.png")));
 		btnModificarItem.setForeground(Color.WHITE);
 		btnModificarItem.setFont(new Font("Roboto", Font.BOLD, 12));
 		btnModificarItem.setBorder(null);
@@ -265,6 +271,7 @@ public class VentanaGestionInsumos extends JPanel {
 		add(btnModificarItem);
 		
 		btnEliminarItem = new JButton("ELIMINAR");
+		btnEliminarItem.setIcon(new ImageIcon(VentanaGestionInsumos.class.getResource("/imagenes/iconRemover.png")));
 		btnEliminarItem.setForeground(Color.WHITE);
 		btnEliminarItem.setFont(new Font("Roboto", Font.BOLD, 12));
 		btnEliminarItem.setBorder(null);
@@ -273,6 +280,7 @@ public class VentanaGestionInsumos extends JPanel {
 		add(btnEliminarItem);
 		
 		btnLimpiar = new JButton("LIMPIAR");
+		btnLimpiar.setIcon(new ImageIcon(VentanaGestionInsumos.class.getResource("/imagenes/iconBarrer.png")));
 		btnLimpiar.setForeground(Color.WHITE);
 		btnLimpiar.setFont(new Font("Roboto", Font.BOLD, 12));
 		btnLimpiar.setBorder(null);

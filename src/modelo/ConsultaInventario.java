@@ -58,7 +58,8 @@ public class ConsultaInventario extends Conexion {
 	            }
 	        }
 	    }
-	   
+	  
+
 	    public boolean modificar(VentanaGestionInventario ventanaGestionInventario){
 	    	
 	    	int fila = ventanaGestionInventario.table.getSelectedRow();
