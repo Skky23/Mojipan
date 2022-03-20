@@ -24,7 +24,7 @@ public class ControladorGestionInsumos implements ActionListener, MouseListener 
 		this.ventanaGestionInsumos.btnEliminarItem.addActionListener(this);
 		this.ventanaGestionInsumos.btnLimpiar.addActionListener(this);
 		this.ventanaGestionInsumos.btnListaInventario.addActionListener(this);
-		this.ventanaGestionInsumos.btnModificarItem.addActionListener(this);
+		//this.ventanaGestionInsumos.btnModificarItem.addActionListener(this);
 		this.ventanaGestionInsumos.btnRegistrarItem.addActionListener(this);
 		consultaInsumos.poblarTabla(ventanaGestionInsumos.table);
 		this.ventanaGestionInsumos.table.addMouseListener(this);

@@ -261,14 +261,14 @@ public class VentanaGestionInsumos extends JPanel {
 		btnRegistrarItem.setBounds(30, 221, 113, 25);
 		add(btnRegistrarItem);
 		
-		btnModificarItem = new JButton("MODIFICAR");
+		/*btnModificarItem = new JButton("MODIFICAR");
 		btnModificarItem.setIcon(new ImageIcon(VentanaGestionInsumos.class.getResource("/imagenes/iconEditar.png")));
 		btnModificarItem.setForeground(Color.WHITE);
 		btnModificarItem.setFont(new Font("Roboto", Font.BOLD, 12));
 		btnModificarItem.setBorder(null);
 		btnModificarItem.setBackground(new Color(159,11,47));
 		btnModificarItem.setBounds(161, 221, 113, 25);
-		add(btnModificarItem);
+		add(btnModificarItem);*/
 		
 		btnEliminarItem = new JButton("ELIMINAR");
 		btnEliminarItem.setIcon(new ImageIcon(VentanaGestionInsumos.class.getResource("/imagenes/iconRemover.png")));
