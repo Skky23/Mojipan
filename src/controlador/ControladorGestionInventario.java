@@ -49,10 +49,6 @@ public class ControladorGestionInventario implements ActionListener, MouseListen
 			
 		}
 		
-<<<<<<< HEAD
-=======
-		
->>>>>>> dddd8ca06f7893379a02cad00f7106cc39a22f8f
 		if(e.getSource() == ventanaGestionInventario.btnModificarItem) {
 			consultaInventario.modificar(ventanaGestionInventario);
 			
@@ -62,17 +58,6 @@ public class ControladorGestionInventario implements ActionListener, MouseListen
 			consultaInventario.poblarTabla(ventanaGestionInventario.table);
 		}
 		
-<<<<<<< HEAD
-		if(e.getSource() == ventanaGestionInventario.btnSeleccionar) {
-			
-			int fila = ventanaGestionInventario.table.getSelectedRow();
-			
-			ponerValoresTablaEnCasillas(fila);
-			ventanaGestionInventario.borrarElementosTabla();
-			
-		}
-=======
->>>>>>> dddd8ca06f7893379a02cad00f7106cc39a22f8f
 		
 		if(e.getSource() == ventanaGestionInventario.btnListaInventario) {
 			

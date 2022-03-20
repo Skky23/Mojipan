@@ -20,6 +20,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.ImageIcon;
 
 public class VentanaVentas extends JPanel {
 	
@@ -112,6 +113,7 @@ public class VentanaVentas extends JPanel {
 		add(lblNewLabel_1_2);
 		
 		btnEliminarRegistroTabla = new JButton("QUITAR PRODUCTO");
+		btnEliminarRegistroTabla.setIcon(new ImageIcon(VentanaVentas.class.getResource("/imagenes/iconRemover.png")));
 		btnEliminarRegistroTabla.setForeground(Color.WHITE);
 		btnEliminarRegistroTabla.setFont(new Font("Roboto", Font.BOLD, 12));
 		btnEliminarRegistroTabla.setBorder(null);
@@ -145,6 +147,7 @@ public class VentanaVentas extends JPanel {
 		
 		
 		btnVenta = new JButton("GENERAR VENTA");
+		btnVenta.setIcon(new ImageIcon(VentanaVentas.class.getResource("/imagenes/iconVentas.png")));
 		btnVenta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -157,6 +160,7 @@ public class VentanaVentas extends JPanel {
 		add(btnVenta);
 		
 		btnLimpiarRegistrosTabla = new JButton("QUITAR TODO");
+		btnLimpiarRegistrosTabla.setIcon(new ImageIcon(VentanaVentas.class.getResource("/imagenes/iconRemover.png")));
 		btnLimpiarRegistrosTabla.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -207,6 +211,7 @@ public class VentanaVentas extends JPanel {
 		add(textFieldTotal);
 		
 		btnAgregarItem = new JButton("AGREGAR");
+		btnAgregarItem.setIcon(new ImageIcon(VentanaVentas.class.getResource("/imagenes/iconAgregar.png")));
 		btnAgregarItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
